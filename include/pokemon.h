@@ -7,10 +7,20 @@
 
 typedef struct Pokemon Pokemon;
 
+typedef struct PokemonsList PokemonsList;
+
 void printPokemon(Pokemon *pokemon);
+
+void printPokemonList(PokemonsList *poke_list);
 
 void freePokemon(Pokemon *pokemon);
 
-Pokemon** readPokemons(int *quantity);
+void freePokemonList(PokemonsList *poke_list);
+
+void addPokemonOnList(PokemonsList *poke_list);
+
+void removePokemonFromList(PokemonsList *poke_list, int position);
+
+PokemonsList * readPokemons(int *quantity);
 
 #endif // POKEMON_H

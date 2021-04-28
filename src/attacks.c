@@ -73,7 +73,7 @@ Attack ** readAttacks(int *attacksquantity)
     } while(1);
 
     fclose(atks);
-    *attacksquantity = attack_quantity-1; 
+    *attacksquantity = attack_quantity - 1; 
     return attacks;
 }
 

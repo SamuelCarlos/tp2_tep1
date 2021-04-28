@@ -2,6 +2,7 @@
 #include "attacks.h"
 
 struct Pokemon {
+    int id;
     char *name;
     int hp;
     int atk;
@@ -10,10 +11,17 @@ struct Pokemon {
     int attacks[3];
 };
 
-Pokemon ** readPokemons(int *quantity)
+struct PokemonsList {
+    Pokemon *pokemon;
+    PokemonsList *next;
+};
+
+PokemonsList * readPokemons(int *quantity)
 {
     FILE *poke;
-    Pokemon **pokemons;
+    Pokemon *pokemon;
+    PokemonsList *poke_list;
+    PokemonsList *actual_cell;
     int pokemons_quantity = 1, ended = 0;
     int array_parser, i;
     char *pointer, *pointer2, *token;
@@ -21,19 +29,15 @@ Pokemon ** readPokemons(int *quantity)
     size_t bufsize;
     size_t characters;
 
-    pokemons = (Pokemon** ) calloc(pokemons_quantity, sizeof(Pokemon*));
-    pokemons[0] = (Pokemon *) calloc(1, sizeof(Pokemon));
+    poke_list = (PokemonsList*) calloc(1, sizeof(PokemonsList));
+    poke_list->pokemon = (Pokemon*) calloc(1, sizeof(Pokemon));
+    poke_list->next = NULL;
+    actual_cell = poke_list;
 
     poke = fopen("./data/pokemons.csv","r");
 
     do
     {
-        if(pokemons_quantity > 1) 
-        {
-            pokemons = (Pokemon **) realloc(pokemons, pokemons_quantity * sizeof(Pokemon *));
-            pokemons[pokemons_quantity - 1] = (Pokemon *) calloc(1, sizeof(Pokemon));
-        }
-
         bufsize = 32;
         array_parser = 0;
 
@@ -46,6 +50,12 @@ Pokemon ** readPokemons(int *quantity)
             break;
         }
         pointer[characters] = '\0';
+
+        if(pokemons_quantity > 1) 
+        {
+            addPokemonOnList(actual_cell);
+            actual_cell = actual_cell->next;
+        }
 
         pointer2 = pointer;
 
@@ -66,15 +76,16 @@ Pokemon ** readPokemons(int *quantity)
             row[i] = token;
         }
 
-        pokemons[pokemons_quantity - 1]->name = strdup(row[0]);
-        pokemons[pokemons_quantity - 1]->hp = atoi(row[1]);
-        pokemons[pokemons_quantity - 1]->atk = atoi(row[2]);
-        pokemons[pokemons_quantity - 1]->def = atoi(row[3]);
-        pokemons[pokemons_quantity - 1]->type = strdup(row[4]);
-        pokemons[pokemons_quantity - 1]->attacks[0] = atoi(row[5]);
-        pokemons[pokemons_quantity - 1]->attacks[1] = atoi(row[6]);
-        pokemons[pokemons_quantity - 1]->attacks[3] = atoi(row[7]);
-
+        actual_cell->pokemon->id = pokemons_quantity;
+        actual_cell->pokemon->name = strdup(row[0]);
+        actual_cell->pokemon->hp = atoi(row[1]);
+        actual_cell->pokemon->atk = atoi(row[2]);
+        actual_cell->pokemon->def = atoi(row[3]);
+        actual_cell->pokemon->type = strdup(row[4]);
+        actual_cell->pokemon->attacks[0] = atoi(row[5]);
+        actual_cell->pokemon->attacks[1] = atoi(row[6]);
+        actual_cell->pokemon->attacks[3] = atoi(row[7]);
+        
         free(row);
         free(pointer2);
         
@@ -82,13 +93,55 @@ Pokemon ** readPokemons(int *quantity)
     } while(!ended);
 
     fclose(poke);
-    *quantity = pokemons_quantity-1;
-    return pokemons;
+    *quantity = pokemons_quantity - 1;
+    return poke_list;
 }
 
 void printPokemon(Pokemon *pokemon) 
 {
-    printf("name: %s\nhp: %d\natk: %d\ndef: %d\ntype: %s\nattack 1: %d\nattack 2: %d\nattack 3: %d\n", pokemon->name,pokemon->hp, pokemon->atk, pokemon->def, pokemon->type, pokemon->attacks[0], pokemon->attacks[1], pokemon->attacks[2]);
+    printf("%s\n", pokemon->name);
+}
+
+void printPokemonList(PokemonsList *poke_list)
+{
+    PokemonsList *actual_cell;
+    int i;
+
+    actual_cell = poke_list;
+
+    do
+    {
+        printPokemon(actual_cell->pokemon);
+        actual_cell = actual_cell->next;
+    }while(actual_cell->next != NULL);
+
+     printPokemon(actual_cell->pokemon);
+}
+
+void addPokemonOnList(PokemonsList *poke_list)
+{
+    poke_list->next = (PokemonsList *) calloc(1, sizeof(PokemonsList));
+    poke_list->next->pokemon = (Pokemon *) calloc(1, sizeof(Pokemon));
+    poke_list->next->next = NULL;
+}
+
+void removePokemonFromList(PokemonsList *poke_list, int position)
+{
+    int i;
+    PokemonsList *actual_cell;
+    PokemonsList *next_cell;
+
+    actual_cell = poke_list;
+
+    for(i = 0; i < position - 2; i++)
+    {
+        actual_cell = actual_cell->next;
+    }
+
+    next_cell = actual_cell->next->next;
+    freePokemon(actual_cell->next->pokemon);
+    free(actual_cell->next);
+    actual_cell->next = next_cell;
 }
 
 void freePokemon(Pokemon *pokemon) 
@@ -98,4 +151,27 @@ void freePokemon(Pokemon *pokemon)
         free(pokemon->type);
         free(pokemon);
     }
+}
+
+void freePokemonList(PokemonsList *poke_list)
+{
+    PokemonsList *actual_cell;
+
+    actual_cell = poke_list;
+
+    do{
+        poke_list = actual_cell;
+
+        printf("Liberando o ");
+        printPokemon(actual_cell->pokemon);
+        freePokemon(actual_cell->pokemon);
+
+        actual_cell = actual_cell->next;
+        free(poke_list);
+    }while(actual_cell->next != NULL);
+
+    printf("Liberando o ");
+    printPokemon(actual_cell->pokemon);
+    freePokemon(actual_cell->pokemon);
+    free(actual_cell);
 }

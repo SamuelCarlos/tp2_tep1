@@ -14,6 +14,8 @@ void mainMenu();
 
 void playGame();
 
-void freeGameData(Pokemon **pokemons, Attack **attacks,int pokemonsquantity,int attacksquantity);
+void freeGameData(Attack **attacks, int attacksQuantity);
+
+int userPokemonChoose(Pokemon ** pokemons, int pokemonsQuantity, int * user_pokemons);
 
 #endif // MENU_H
