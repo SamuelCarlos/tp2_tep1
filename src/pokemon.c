@@ -10,7 +10,7 @@ struct Pokemon {
     int attacks[3];
 };
 
-Pokemon** readPokemons()
+Pokemon ** readPokemons(int *quantity)
 {
     FILE *poke;
     Pokemon **pokemons;
@@ -82,6 +82,7 @@ Pokemon** readPokemons()
     } while(!ended);
 
     fclose(poke);
+    *quantity = pokemons_quantity-1;
     return pokemons;
 }
 

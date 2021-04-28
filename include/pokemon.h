@@ -11,6 +11,6 @@ void printPokemon(Pokemon *pokemon);
 
 void freePokemon(Pokemon *pokemon);
 
-Pokemon** readPokemons();
+Pokemon** readPokemons(int *quantity);
 
 #endif // POKEMON_H

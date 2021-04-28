@@ -9,6 +9,6 @@ typedef struct Attack Attack;
 
 void freeAttack(Attack *attack);
 
-Attack ** readAttacks();
+Attack ** readAttacks(int *attacksquantity);
 
 #endif // ATTACKS_H

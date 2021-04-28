@@ -7,7 +7,7 @@ struct Attack {
     int is_MT;              // boolean
 };
 
-Attack ** readAttacks()
+Attack ** readAttacks(int *attacksquantity)
 {
     FILE * atks;
     Attack **attacks;
@@ -73,6 +73,7 @@ Attack ** readAttacks()
     } while(1);
 
     fclose(atks);
+    *attacksquantity = attack_quantity-1; 
     return attacks;
 }
 

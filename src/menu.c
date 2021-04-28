@@ -54,36 +54,36 @@ void playGame()
     Attack **attacks;
     Player *player;
     char *name;
+    int pokemonsquantity=0,attacksquantity=0;
 
     printf("Digite seu nome: ");
 
-    pokemons = readPokemons();
-    attacks = readAttacks();
+    pokemons = readPokemons(&pokemonsquantity);
+    attacks = readAttacks(&attacksquantity);
 
     player = allocPlayer();
 
     name = getUserName();
-    
+    printf("%d",pokemonsquantity);
     free(name);
     freePlayer(player);
-
-    freeGameData(pokemons, attacks);
+    freeGameData(pokemons, attacks,pokemonsquantity,attacksquantity);
     free(pokemons);
     free(attacks);
 }
 
-void freeGameData(Pokemon **pokemons, Attack **attacks)
+void freeGameData(Pokemon **pokemons, Attack **attacks,int pokemonsquantity,int attacksquantity)
 {
     int i = 0;
     do{
-        if(pokemons[i] == NULL) break;
+        //if(pokemons[i] == NULL) break;
         freePokemon(pokemons[i]);
         i++;
-    }while(1);
+    }while(i<=pokemonsquantity);
     i = 0;
     do{
-        if(attacks[i] == NULL) break;
+        //if(attacks[i] == NULL) break;
         freeAttack(attacks[i]);
         i++;
-    }while(1);
+    }while(i<=attacksquantity);
 }
