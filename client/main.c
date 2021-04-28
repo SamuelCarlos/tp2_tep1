@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include "pokemon.h"
+#include "menu.h"
 
 int main (int argc, char *argv[])
 {
-    Pokemon * pokemons;
-    pokemons = readPokemons();
+    mainMenu();
+
     return 0;
 }

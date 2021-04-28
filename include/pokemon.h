@@ -7,6 +7,10 @@
 
 typedef struct Pokemon Pokemon;
 
-Pokemon* readPokemons();
+void printPokemon(Pokemon *pokemon);
+
+void freePokemon(Pokemon *pokemon);
+
+Pokemon** readPokemons();
 
 #endif // POKEMON_H

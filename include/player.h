@@ -6,4 +6,8 @@
 
 typedef struct Player Player;
 
+Player * allocPlayer();
+
+void freePlayer(Player *player);
+
 #endif // PLAYER_H
