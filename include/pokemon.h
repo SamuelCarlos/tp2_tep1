@@ -19,7 +19,9 @@ void freePokemonList(PokemonsList *poke_list);
 
 void addPokemonOnList(PokemonsList *poke_list);
 
-void removePokemonFromList(PokemonsList *poke_list, int position);
+PokemonsList * removePokemonFromList(PokemonsList *poke_list, int position);
+
+Pokemon * readPokemonFromList(PokemonsList *poke_list, int position);
 
 PokemonsList * readPokemons(int *quantity);
 

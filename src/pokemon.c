@@ -105,17 +105,20 @@ void printPokemon(Pokemon *pokemon)
 void printPokemonList(PokemonsList *poke_list)
 {
     PokemonsList *actual_cell;
-    int i;
+    int i = 1;
 
     actual_cell = poke_list;
 
     do
     {
+        printf("%d - ", i);
         printPokemon(actual_cell->pokemon);
         actual_cell = actual_cell->next;
+        i++;
     }while(actual_cell->next != NULL);
 
-     printPokemon(actual_cell->pokemon);
+    printf("%d - ", i);
+    printPokemon(actual_cell->pokemon);
 }
 
 void addPokemonOnList(PokemonsList *poke_list)
@@ -125,23 +128,52 @@ void addPokemonOnList(PokemonsList *poke_list)
     poke_list->next->next = NULL;
 }
 
-void removePokemonFromList(PokemonsList *poke_list, int position)
+PokemonsList * removePokemonFromList(PokemonsList *poke_list, int position)
 {
     int i;
     PokemonsList *actual_cell;
-    PokemonsList *next_cell;
+    PokemonsList *previous_cell;
+
+    actual_cell = poke_list;
+    previous_cell = NULL;
+
+    for(i = 0; i < position; i++)
+    {
+        previous_cell = actual_cell;
+        if(actual_cell->next != NULL)
+        {
+            actual_cell = actual_cell->next;
+        }
+    }
+
+    if(previous_cell == NULL)
+    {
+        poke_list = actual_cell->next;
+    }
+    else
+    {
+        previous_cell->next = actual_cell->next;
+    }
+
+    freePokemon(actual_cell->pokemon);
+    free(actual_cell);
+
+    return poke_list;
+}
+
+Pokemon * readPokemonFromList(PokemonsList *poke_list, int position)
+{
+    int i;
+    PokemonsList *actual_cell;
 
     actual_cell = poke_list;
 
-    for(i = 0; i < position - 2; i++)
+    for(i = 0; i < position - 1; i++)
     {
         actual_cell = actual_cell->next;
     }
 
-    next_cell = actual_cell->next->next;
-    freePokemon(actual_cell->next->pokemon);
-    free(actual_cell->next);
-    actual_cell->next = next_cell;
+    return actual_cell->pokemon;
 }
 
 void freePokemon(Pokemon *pokemon) 
@@ -161,17 +193,12 @@ void freePokemonList(PokemonsList *poke_list)
 
     do{
         poke_list = actual_cell;
-
-        printf("Liberando o ");
-        printPokemon(actual_cell->pokemon);
         freePokemon(actual_cell->pokemon);
 
         actual_cell = actual_cell->next;
         free(poke_list);
     }while(actual_cell->next != NULL);
 
-    printf("Liberando o ");
-    printPokemon(actual_cell->pokemon);
     freePokemon(actual_cell->pokemon);
     free(actual_cell);
 }

@@ -7,4 +7,6 @@
 
 char * getUserName();
 
+int getUserNumberInput(int min, int max);
+
 #endif // UTILS_H

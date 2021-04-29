@@ -70,16 +70,12 @@ void playGame()
 
     name = getUserName();
 
-    printPokemonList(pokemons);
-
-    removePokemonFromList(pokemons, 3);
-
-    printPokemonList(pokemons);
-
-    // for(i = 0; i < 3; i++)
-    // {
-    //     user_pokemons[i] = userPokemonChoose(pokemons, pokemonsQuantity, user_pokemons) - 1;
-    // }
+    for(i = 0; i < 3; i++)
+    {
+        printPokemonList(pokemons);
+        user_pokemons[i] = getUserNumberInput(1,pokemonsQuantity - i);
+        pokemons = removePokemonFromList(pokemons, user_pokemons[i] - 1);
+    }
 
     free(name);
     freePlayer(player);
@@ -98,60 +94,3 @@ void freeGameData(Attack **attacks, int attacksQuantity)
     }while(i <= attacksQuantity);
 }
 
-int userPokemonChoose(Pokemon ** pokemons, int pokemonsQuantity, int * user_pokemons)
-{
-    int i, j, is_equal, valid_option = 1, option;
-
-    printf("Escolha um dos pokemons abaixo:\n");
-
-    for(i = 0; i < pokemonsQuantity; i++)
-    {   
-        is_equal = 0;
-        for(j = 0; j < 3; j++)
-        {
-            if(user_pokemons[j] == i) is_equal = 1;
-        }
-        if(!is_equal)
-        {
-            printf("%d - ", i + 1);
-            printPokemon(pokemons[i]);
-        }
-    }
-
-    do
-    {
-        if(!valid_option)
-        {
-            printf("Digite uma opcao valida!\n");
-        }
-        valid_option = 1;
-
-        while(scanf("%d", &option) != 1) 
-        {
-            while(getchar() != '\n'){};
-            printf("Digite uma entrada valida: ");
-        }
-        while(getchar() != '\n') 
-        {
-            valid_option = 0;
-        }
-
-        if(option < 1 || option > pokemonsQuantity)
-        {
-            valid_option = 0;
-        }
-        else
-        {
-            for(i = 0; i < 3; i++)
-            {
-                if(user_pokemons[i] == option)
-                {
-                    valid_option = 0;
-                }
-            }
-        } 
-    
-    }while(!valid_option);
-
-    return option;
-}

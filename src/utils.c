@@ -41,3 +41,33 @@ char * getUserName()
 
     return name;
 }
+
+int getUserNumberInput(int min, int max)
+{
+    int option, valid_option = 1;
+
+    do
+    {
+        if(!valid_option)
+        {
+            printf("Digite uma entrada valida: ");
+            valid_option = 1;
+        }
+        while(scanf("%d", &option) != 1)
+        {
+            while(getchar() != '\n'){};
+            printf("Digite uma entrada valida: ");
+        }
+        while(getchar() != '\n')
+        {
+            valid_option = 0;
+        }
+
+        if(option < min || option > max)
+        {
+            valid_option = 0;
+        }
+    } while (!valid_option);
+    
+    return option;
+}
