@@ -6,6 +6,7 @@
 #include <string.h>
 
 #include "../include/utils.h"
+#include "../include/battle.h"
 #include "../include/player.h"
 #include "../include/pokemon.h"
 #include "../include/attacks.h"
@@ -14,8 +15,8 @@ void mainMenu();
 
 void playGame();
 
-void freeGameData(Attack **attacks, int attacksQuantity);
-
 int userPokemonChoose(Pokemon ** pokemons, int pokemonsQuantity, int * user_pokemons);
+
+int randomPokemonNumber(Game* new_game, int pokemon_quantity);
 
 #endif // MENU_H

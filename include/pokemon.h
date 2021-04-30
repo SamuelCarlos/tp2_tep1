@@ -17,12 +17,32 @@ void freePokemon(Pokemon *pokemon);
 
 void freePokemonList(PokemonsList *poke_list);
 
-void addPokemonOnList(PokemonsList *poke_list);
+Pokemon * createPokemon();
 
-PokemonsList * removePokemonFromList(PokemonsList *poke_list, int position);
+Pokemon * copyPokemon(Pokemon *poke, Pokemon *poke2);
 
 Pokemon * readPokemonFromList(PokemonsList *poke_list, int position);
 
+PokemonsList * addPokemonOnList(PokemonsList *poke_list);
+
+PokemonsList * attributePokemonToCell(PokemonsList* cell, Pokemon* pokemon);
+
+PokemonsList * removePokemonFromList(PokemonsList *poke_list, int position);
+
 PokemonsList * readPokemons(int *quantity);
+
+float getPokemonHP(Pokemon *pokemon);
+
+float getPokemonActualHP(Pokemon *pokemon);
+
+void setPokemonActualHP(Pokemon *pokemon, float new_hp);
+
+int getPokemonATK(Pokemon *pokemon);
+
+int getPokemonDEF(Pokemon *pokemon);
+
+char* getPokemonTYPE(Pokemon *pokemon);
+
+int* getPokemonATTACKS(Pokemon *pokemon);
 
 #endif // POKEMON_H

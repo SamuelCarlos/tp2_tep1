@@ -3,8 +3,6 @@
 
 struct Player {
     char *name;
-    int active_pokemons;
-    int pokeballs;
     int score;
 };
 

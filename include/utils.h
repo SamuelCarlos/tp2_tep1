@@ -9,4 +9,6 @@ char * getUserName();
 
 int getUserNumberInput(int min, int max);
 
+int randomPokemonNumber();
+
 #endif // UTILS_H

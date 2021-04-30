@@ -1,5 +1,6 @@
 #include "menu.h"
 #include "../include/utils.h"
+#include "../include/battle.h"
 #include "../include/player.h"
 #include "../include/pokemon.h"
 #include "../include/attacks.h"
@@ -54,43 +55,98 @@ void mainMenu()
 
 void playGame()
 {
-    PokemonsList *pokemons;
-    Attack **attacks;
+    Game * new_game;
+    PokemonsList *pokemons, *user_pokemons = NULL, *last_user_pokemon = NULL;
+    Pokemon * cpu_pokemon;
     Player *player;
     char *name;
-    int pokemonsQuantity = 0,attacksQuantity = 0, i;
-    int user_pokemons[3] = {-1, -1, -1};
+    int pokemonsQuantity = 0, i, player_choice;
+    int battle_result, player_defeated = 0, random_pokemon;
 
     printf("Digite seu nome: ");
 
     pokemons = readPokemons(&pokemonsQuantity);
-    attacks = readAttacks(&attacksQuantity);
 
     player = allocPlayer();
 
     name = getUserName();
 
+    user_pokemons = addPokemonOnList(user_pokemons);
+    last_user_pokemon = user_pokemons;
+
     for(i = 0; i < 3; i++)
     {
+        if(i > 0) {
+            last_user_pokemon = addPokemonOnList(last_user_pokemon);
+        }
         printPokemonList(pokemons);
-        user_pokemons[i] = getUserNumberInput(1,pokemonsQuantity - i);
-        pokemons = removePokemonFromList(pokemons, user_pokemons[i] - 1);
+        player_choice = getUserNumberInput(1, pokemonsQuantity - i);
+        last_user_pokemon = attributePokemonToCell(last_user_pokemon, readPokemonFromList(pokemons, player_choice));
+        pokemons = removePokemonFromList(pokemons, player_choice - 1);
     }
+    // reset pokemons list
+    freePokemonList(pokemons);
+    pokemonsQuantity = 0;
+    pokemons = readPokemons(&pokemonsQuantity);
+
+    new_game = newGame(new_game);
+
+    random_pokemon = randomPokemonNumber(new_game, pokemonsQuantity);
+
+    printf("%d\n", random_pokemon);
+    getchar();
+    cpu_pokemon = createPokemon(cpu_pokemon);
+    cpu_pokemon = copyPokemon(cpu_pokemon, readPokemonFromList(pokemons, random_pokemon));
+
+    do {
+        battle_result = battle(readPokemonFromList(user_pokemons, 0), cpu_pokemon, new_game);
+
+        switch (battle_result)
+        {
+            case 2:
+                last_user_pokemon = addPokemonOnList(last_user_pokemon);
+                last_user_pokemon = attributePokemonToCell(last_user_pokemon, readPokemonFromList(pokemons, random_pokemon));
+                freePokemon(cpu_pokemon);
+                cpu_pokemon = createPokemon(cpu_pokemon);
+                random_pokemon = randomPokemonNumber(new_game, pokemonsQuantity);
+                cpu_pokemon = copyPokemon(cpu_pokemon, readPokemonFromList(pokemons, random_pokemon));
+                break;
+            case 1:
+                freePokemon(cpu_pokemon);
+                cpu_pokemon = createPokemon(cpu_pokemon);
+                random_pokemon = randomPokemonNumber(new_game, pokemonsQuantity);
+                 printf("\n\nRANDOM: %d\n\n", random_pokemon);
+                cpu_pokemon = copyPokemon(cpu_pokemon, readPokemonFromList(pokemons, random_pokemon));
+                break;
+            case 0:
+                user_pokemons = removePokemonFromList(user_pokemons, 0);
+                if(user_pokemons == NULL) player_defeated = 1;
+                break;
+            default:
+                break;
+        }
+    }while(!player_defeated);
+
+    printf("VOCE PERDEU\n");
 
     free(name);
     freePlayer(player);
-    freeGameData(attacks, attacksQuantity);
     freePokemonList(pokemons);
-    free(attacks);
+    freePokemonList(user_pokemons);
 }
 
-void freeGameData(Attack **attacks, int attacksQuantity)
+int randomPokemonNumber(Game* new_game, int pokemon_quantity)
 {
-    int i = 0;
-    do{
-        //if(attacks[i] == NULL) break;
-        freeAttack(attacks[i]);
-        i++;
-    }while(i <= attacksQuantity);
-}
+    float random = (float)rand()/(float)(RAND_MAX);
 
+    int lastMew = getGameLastMew(new_game);
+
+    if(random <= (lastMew/128)){
+        setGameLastMew(new_game, 0);
+        return pokemon_quantity - 1;
+    }
+    else{
+        setGameLastMew(new_game, lastMew + 1);
+        return (int) rand() % (pokemon_quantity - 2);
+    }
+}

@@ -4,11 +4,12 @@
 struct Pokemon {
     int id;
     char *name;
-    int hp;
+    float hp;
+    float actual_hp;
     int atk;
     int def;
     char* type;
-    int attacks[3];
+    int *attacks;
 };
 
 struct PokemonsList {
@@ -30,7 +31,7 @@ PokemonsList * readPokemons(int *quantity)
     size_t characters;
 
     poke_list = (PokemonsList*) calloc(1, sizeof(PokemonsList));
-    poke_list->pokemon = (Pokemon*) calloc(1, sizeof(Pokemon));
+    poke_list->pokemon = createPokemon(poke_list->pokemon);
     poke_list->next = NULL;
     actual_cell = poke_list;
 
@@ -79,12 +80,13 @@ PokemonsList * readPokemons(int *quantity)
         actual_cell->pokemon->id = pokemons_quantity;
         actual_cell->pokemon->name = strdup(row[0]);
         actual_cell->pokemon->hp = atoi(row[1]);
+        actual_cell->pokemon->actual_hp = atoi(row[1]);
         actual_cell->pokemon->atk = atoi(row[2]);
         actual_cell->pokemon->def = atoi(row[3]);
         actual_cell->pokemon->type = strdup(row[4]);
-        actual_cell->pokemon->attacks[0] = atoi(row[5]);
-        actual_cell->pokemon->attacks[1] = atoi(row[6]);
-        actual_cell->pokemon->attacks[3] = atoi(row[7]);
+        actual_cell->pokemon->attacks[0] = atoi(row[5])-1;
+        actual_cell->pokemon->attacks[1] = atoi(row[6])-1;
+        actual_cell->pokemon->attacks[2] = atoi(row[7])-1;
         
         free(row);
         free(pointer2);
@@ -99,7 +101,7 @@ PokemonsList * readPokemons(int *quantity)
 
 void printPokemon(Pokemon *pokemon) 
 {
-    printf("%s\n", pokemon->name);
+    printf("%s", pokemon->name);
 }
 
 void printPokemonList(PokemonsList *poke_list)
@@ -113,19 +115,30 @@ void printPokemonList(PokemonsList *poke_list)
     {
         printf("%d - ", i);
         printPokemon(actual_cell->pokemon);
+        printf("\n");
         actual_cell = actual_cell->next;
         i++;
-    }while(actual_cell->next != NULL);
-
-    printf("%d - ", i);
-    printPokemon(actual_cell->pokemon);
+    }while(actual_cell != NULL);
 }
 
-void addPokemonOnList(PokemonsList *poke_list)
+
+PokemonsList * addPokemonOnList(PokemonsList *poke_list)
 {
-    poke_list->next = (PokemonsList *) calloc(1, sizeof(PokemonsList));
-    poke_list->next->pokemon = (Pokemon *) calloc(1, sizeof(Pokemon));
-    poke_list->next->next = NULL;
+    if(poke_list == NULL)
+    {
+        poke_list = (PokemonsList*) calloc(1, sizeof(PokemonsList));
+        poke_list->pokemon = createPokemon(poke_list->pokemon);
+        poke_list->next = NULL;
+        return poke_list;
+    }
+    else
+    {
+        poke_list->next = (PokemonsList *) calloc(1, sizeof(PokemonsList));
+        poke_list = poke_list->next;
+        poke_list->pokemon = createPokemon(poke_list->pokemon);
+        poke_list->next = NULL;
+        return poke_list;
+    }
 }
 
 PokemonsList * removePokemonFromList(PokemonsList *poke_list, int position)
@@ -176,11 +189,36 @@ Pokemon * readPokemonFromList(PokemonsList *poke_list, int position)
     return actual_cell->pokemon;
 }
 
+Pokemon * createPokemon()
+{
+    Pokemon * pokemon;
+    pokemon = (Pokemon*) calloc(1, sizeof(Pokemon));
+    pokemon->attacks = (int *) calloc(3, sizeof(int));
+    return pokemon;
+}
+
+PokemonsList * attributePokemonToCell(PokemonsList* cell, Pokemon* pokemon)
+{
+    cell->pokemon->id = pokemon->id;
+    cell->pokemon->name = strdup(pokemon->name);
+    cell->pokemon->hp = pokemon->hp;
+    cell->pokemon->actual_hp = pokemon->hp;
+    cell->pokemon->atk = pokemon->atk;
+    cell->pokemon->def = pokemon->def;
+    cell->pokemon->type = strdup(pokemon->type);
+    cell->pokemon->attacks[0] = pokemon->attacks[0];
+    cell->pokemon->attacks[1] = pokemon->attacks[1];
+    cell->pokemon->attacks[2] = pokemon->attacks[2];
+
+    return cell;
+}
+
 void freePokemon(Pokemon *pokemon) 
 {
     if(pokemon != NULL){
         free(pokemon->name);
         free(pokemon->type);
+        free(pokemon->attacks);
         free(pokemon);
     }
 }
@@ -197,8 +235,58 @@ void freePokemonList(PokemonsList *poke_list)
 
         actual_cell = actual_cell->next;
         free(poke_list);
-    }while(actual_cell->next != NULL);
+    }while(actual_cell != NULL);
 
-    freePokemon(actual_cell->pokemon);
-    free(actual_cell);
+  
+}
+
+float getPokemonHP(Pokemon *pokemon)
+{
+    return pokemon->hp;
+}
+
+float getPokemonActualHP(Pokemon *pokemon)
+{
+    return pokemon->actual_hp;
+}
+
+void setPokemonActualHP(Pokemon *pokemon, float new_hp)
+{
+    pokemon->actual_hp = new_hp;
+}
+
+int getPokemonATK(Pokemon *pokemon)
+{
+    return pokemon->atk;
+}
+
+int getPokemonDEF(Pokemon *pokemon)
+{
+    return pokemon->def;
+}
+
+char* getPokemonTYPE(Pokemon *pokemon)
+{
+    return pokemon->type;
+}
+
+int* getPokemonATTACKS(Pokemon *pokemon)
+{
+    return pokemon->attacks;
+}
+
+Pokemon * copyPokemon(Pokemon *poke, Pokemon *poke2)
+{
+    poke->id = poke2->id;
+    poke->name = strdup(poke2->name);
+    poke->hp = poke2->hp;
+    poke->actual_hp = poke2->hp;
+    poke->atk = poke2->atk;
+    poke->def = poke2->def;
+    poke->type = strdup(poke2->type);
+    poke->attacks[0] = poke2->attacks[0];
+    poke->attacks[1] = poke2->attacks[1];
+    poke->attacks[2] = poke2->attacks[2];
+
+    return poke;
 }
