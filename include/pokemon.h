@@ -41,7 +41,7 @@ int getPokemonATK(Pokemon *pokemon);
 
 int getPokemonDEF(Pokemon *pokemon);
 
-char* getPokemonTYPE(Pokemon *pokemon);
+int getPokemonTYPE(Pokemon *pokemon);
 
 int* getPokemonATTACKS(Pokemon *pokemon);
 

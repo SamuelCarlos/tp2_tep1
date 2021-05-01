@@ -23,5 +23,6 @@ void setGameLastMew(Game * game, int last_mew);
 
 int battle(Pokemon *player_pokemon, Pokemon *cpu_pokemon, Game * new_game);
 
+float typeRelation (int atk_type, int def_type);
 
 #endif // BATTLE_H

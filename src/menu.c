@@ -115,7 +115,7 @@ void playGame()
                 freePokemon(cpu_pokemon);
                 cpu_pokemon = createPokemon(cpu_pokemon);
                 random_pokemon = randomPokemonNumber(new_game, pokemonsQuantity);
-                 printf("\n\nRANDOM: %d\n\n", random_pokemon);
+                printf("\n\nRANDOM: %d\n\n", random_pokemon);
                 cpu_pokemon = copyPokemon(cpu_pokemon, readPokemonFromList(pokemons, random_pokemon));
                 break;
             case 0:
@@ -147,6 +147,6 @@ int randomPokemonNumber(Game* new_game, int pokemon_quantity)
     }
     else{
         setGameLastMew(new_game, lastMew + 1);
-        return (int) rand() % (pokemon_quantity - 2);
+        return (int) (1 + rand() % (pokemon_quantity - 1));
     }
 }

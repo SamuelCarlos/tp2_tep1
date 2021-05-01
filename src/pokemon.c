@@ -8,7 +8,7 @@ struct Pokemon {
     float actual_hp;
     int atk;
     int def;
-    char* type;
+    int type;
     int *attacks;
 };
 
@@ -83,7 +83,7 @@ PokemonsList * readPokemons(int *quantity)
         actual_cell->pokemon->actual_hp = atoi(row[1]);
         actual_cell->pokemon->atk = atoi(row[2]);
         actual_cell->pokemon->def = atoi(row[3]);
-        actual_cell->pokemon->type = strdup(row[4]);
+        actual_cell->pokemon->type = atoi(row[4]);
         actual_cell->pokemon->attacks[0] = atoi(row[5])-1;
         actual_cell->pokemon->attacks[1] = atoi(row[6])-1;
         actual_cell->pokemon->attacks[2] = atoi(row[7])-1;
@@ -205,7 +205,7 @@ PokemonsList * attributePokemonToCell(PokemonsList* cell, Pokemon* pokemon)
     cell->pokemon->actual_hp = pokemon->hp;
     cell->pokemon->atk = pokemon->atk;
     cell->pokemon->def = pokemon->def;
-    cell->pokemon->type = strdup(pokemon->type);
+    cell->pokemon->type = pokemon->type;
     cell->pokemon->attacks[0] = pokemon->attacks[0];
     cell->pokemon->attacks[1] = pokemon->attacks[1];
     cell->pokemon->attacks[2] = pokemon->attacks[2];
@@ -217,7 +217,6 @@ void freePokemon(Pokemon *pokemon)
 {
     if(pokemon != NULL){
         free(pokemon->name);
-        free(pokemon->type);
         free(pokemon->attacks);
         free(pokemon);
     }
@@ -265,7 +264,7 @@ int getPokemonDEF(Pokemon *pokemon)
     return pokemon->def;
 }
 
-char* getPokemonTYPE(Pokemon *pokemon)
+int getPokemonTYPE(Pokemon *pokemon)
 {
     return pokemon->type;
 }
@@ -283,7 +282,7 @@ Pokemon * copyPokemon(Pokemon *poke, Pokemon *poke2)
     poke->actual_hp = poke2->hp;
     poke->atk = poke2->atk;
     poke->def = poke2->def;
-    poke->type = strdup(poke2->type);
+    poke->type = poke2->type;
     poke->attacks[0] = poke2->attacks[0];
     poke->attacks[1] = poke2->attacks[1];
     poke->attacks[2] = poke2->attacks[2];

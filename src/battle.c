@@ -99,14 +99,17 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
         {
         case 1:
             damage = attackPokemon(player_pokemon_attacks[0] + 1, getPokemonATK(player_pokemon), getPokemonDEF(cpu_pokemon), player_debuffs, cpu_debuffs);
+            damage = damage * typeRelation(getPokemonTYPE(player_pokemon), getPokemonTYPE(cpu_pokemon));
             setPokemonActualHP(cpu_pokemon, getPokemonActualHP(cpu_pokemon) - damage);
             break;
         case 2:
             damage = attackPokemon(player_pokemon_attacks[1] + 1, getPokemonATK(player_pokemon), getPokemonDEF(cpu_pokemon), player_debuffs, cpu_debuffs);
+            damage = damage * typeRelation(getPokemonTYPE(player_pokemon), getPokemonTYPE(cpu_pokemon));
             setPokemonActualHP(cpu_pokemon, getPokemonActualHP(cpu_pokemon) - damage);
             break;
         case 3:
             damage = attackPokemon(player_pokemon_attacks[2] + 1, getPokemonATK(player_pokemon), getPokemonDEF(cpu_pokemon), player_debuffs, cpu_debuffs);
+            damage = damage * typeRelation(getPokemonTYPE(player_pokemon), getPokemonTYPE(cpu_pokemon));
             setPokemonActualHP(cpu_pokemon, getPokemonActualHP(cpu_pokemon) - damage);
             break;
         default:
@@ -136,5 +139,49 @@ int getGameLastMew(Game * game)
 void setGameLastMew(Game * game, int last_mew)
 {
     game->last_mew = last_mew;
+}
+
+float typeRelation (int atk_type, int def_type)
+{
+    float relations[6][6];
+
+    relations[0][0] = 0.5;
+    relations[0][1] = 1;
+    relations[0][2] = 2;
+    relations[0][3] = 0.5;
+    relations[0][4] = 1;
+    relations[0][5] = 1;
+    relations[1][0] = 1;
+    relations[1][1] = 0.5;
+    relations[1][2] = 0.5;
+    relations[1][3] = 2;
+    relations[1][4] = 2;
+    relations[1][5] = 1;
+    relations[2][0] = 1;
+    relations[2][1] = 2;
+    relations[2][2] = 0.5;
+    relations[2][3] = 0.5;
+    relations[2][4] = 1;
+    relations[2][5] = 1;
+    relations[3][0] = 1;
+    relations[3][1] = 0.5;
+    relations[3][2] = 2;
+    relations[3][3] = 0.5;
+    relations[3][4] = 0.5;
+    relations[3][5] = 1;
+    relations[4][0] = 0.5;
+    relations[4][1] = 0.5;
+    relations[4][2] = 0.5;
+    relations[4][3] = 1;
+    relations[4][4] = 0.5;
+    relations[4][5] = 1;
+    relations[5][0] = 1;
+    relations[5][1] = 1;
+    relations[5][2] = 1;
+    relations[5][3] = 1;
+    relations[5][4] = 0.5;
+    relations[5][5] = 0.5;
+
+    return relations[atk_type][def_type];
 }
 
