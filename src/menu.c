@@ -115,7 +115,6 @@ void playGame()
                 freePokemon(cpu_pokemon);
                 cpu_pokemon = createPokemon(cpu_pokemon);
                 random_pokemon = randomPokemonNumber(new_game, pokemonsQuantity);
-                printf("\n\nRANDOM: %d\n\n", random_pokemon);
                 cpu_pokemon = copyPokemon(cpu_pokemon, readPokemonFromList(pokemons, random_pokemon));
                 break;
             case 0:

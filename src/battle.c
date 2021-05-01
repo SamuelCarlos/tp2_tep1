@@ -62,10 +62,13 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
     DebuffsList * player_debuffs = NULL;
     DebuffsList * cpu_debuffs = NULL;
     BattleStage * battle_stage = NULL;
+    Pokemon * attacker;
+    Pokemon * deffender;
     Attack **attacks = NULL;
-    int turn = 0, attacksQuantity = 0, option;
-    int *player_pokemon_attacks = getPokemonATTACKS(player_pokemon);
+    int turn = 0, attacksQuantity = 0, option, isPlayerTurn = 1;
+    int * pokemon_attacks;
     float damage;
+    char trash;
 
     attacks = readAttacks(&attacksQuantity);
     
@@ -81,41 +84,59 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
     loadDispatchAttack();
 
     do{
+        trash = system("clear");
+        if(turn % 2 == 0) {
+            attacker = player_pokemon;
+            deffender = cpu_pokemon;
+            pokemon_attacks = getPokemonATTACKS(player_pokemon);
+            isPlayerTurn = 1;
+        }else{
+            attacker = cpu_pokemon;
+            deffender = player_pokemon;
+            pokemon_attacks = getPokemonATTACKS(cpu_pokemon);
+            isPlayerTurn = 0;
+        }
+
         damage = 0;
-        printPokemon(cpu_pokemon);
-        printf(": %.0f%% HP\n", (getPokemonActualHP(cpu_pokemon)/getPokemonHP(cpu_pokemon) * 100));
-        printPokemon(player_pokemon);
-        printf(": %.0f%% HP\n\n", (getPokemonActualHP(player_pokemon)/getPokemonHP(player_pokemon) * 100));
-        
-        printf("Escolha um movimento:\n");
-        printf("1- %s\n", getAttackName(attacks[player_pokemon_attacks[0]]));
-        printf("2- %s\n", getAttackName(attacks[player_pokemon_attacks[1]]));
-        printf("3- %s\n", getAttackName(attacks[player_pokemon_attacks[2]]));
-        printf("4- Pokebola (%d disponiveis)\n", new_game->player_pokeballs);
-        printf("5- Fugir\n");
-        option = getUserNumberInput(1, 5);
+        if(isPlayerTurn) {
+            printPokemon(cpu_pokemon);
+            printf(": %.0f%% HP\n", (getPokemonActualHP(cpu_pokemon)/getPokemonHP(cpu_pokemon) * 100));
+            printPokemon(player_pokemon);
+            printf(": %.0f%% HP\n\n", (getPokemonActualHP(player_pokemon)/getPokemonHP(player_pokemon) * 100));
+            
+            printf("Escolha um movimento:\n");
+            printf("1- %s\n", getAttackName(attacks[pokemon_attacks[0]]));
+            printf("2- %s\n", getAttackName(attacks[pokemon_attacks[1]]));
+            printf("3- %s\n", getAttackName(attacks[pokemon_attacks[2]]));
+            printf("4- Pokebola (%d disponiveis)\n", new_game->player_pokeballs);
+            printf("5- Fugir\n");
+            option = getUserNumberInput(1, 5);
+        }else{
+            option = (int) 1 + rand() % 3;
+        }
 
         switch (option)
         {
         case 1:
-            damage = attackPokemon(player_pokemon_attacks[0] + 1, getPokemonATK(player_pokemon), getPokemonDEF(cpu_pokemon), player_debuffs, cpu_debuffs);
-            damage = damage * typeRelation(getPokemonTYPE(player_pokemon), getPokemonTYPE(cpu_pokemon));
-            setPokemonActualHP(cpu_pokemon, getPokemonActualHP(cpu_pokemon) - damage);
+            damage = attackPokemon(pokemon_attacks[0] + 1, getPokemonATK(attacker), getPokemonDEF(deffender), player_debuffs, cpu_debuffs);
+            damage = damage * typeRelation(getPokemonTYPE(attacker), getPokemonTYPE(deffender));
+            setPokemonActualHP(deffender, getPokemonActualHP(deffender) - damage);
             break;
         case 2:
-            damage = attackPokemon(player_pokemon_attacks[1] + 1, getPokemonATK(player_pokemon), getPokemonDEF(cpu_pokemon), player_debuffs, cpu_debuffs);
-            damage = damage * typeRelation(getPokemonTYPE(player_pokemon), getPokemonTYPE(cpu_pokemon));
-            setPokemonActualHP(cpu_pokemon, getPokemonActualHP(cpu_pokemon) - damage);
+            damage = attackPokemon(pokemon_attacks[1] + 1, getPokemonATK(attacker), getPokemonDEF(deffender), player_debuffs, cpu_debuffs);
+            damage = damage * typeRelation(getPokemonTYPE(attacker), getPokemonTYPE(deffender));
+            setPokemonActualHP(deffender, getPokemonActualHP(deffender) - damage);
             break;
         case 3:
-            damage = attackPokemon(player_pokemon_attacks[2] + 1, getPokemonATK(player_pokemon), getPokemonDEF(cpu_pokemon), player_debuffs, cpu_debuffs);
-            damage = damage * typeRelation(getPokemonTYPE(player_pokemon), getPokemonTYPE(cpu_pokemon));
-            setPokemonActualHP(cpu_pokemon, getPokemonActualHP(cpu_pokemon) - damage);
+            damage = attackPokemon(pokemon_attacks[2] + 1, getPokemonATK(attacker), getPokemonDEF(deffender), player_debuffs, cpu_debuffs);
+            damage = damage * typeRelation(getPokemonTYPE(attacker), getPokemonTYPE(deffender));
+            setPokemonActualHP(deffender, getPokemonActualHP(deffender) - damage);
             break;
         default:
             break;
         }
         
+        turn++;
     }while(getPokemonActualHP(cpu_pokemon) > 0 && getPokemonActualHP(player_pokemon) > 0);
 
     if(getPokemonActualHP(cpu_pokemon) <= 0)
