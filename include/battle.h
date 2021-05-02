@@ -25,4 +25,8 @@ int battle(Pokemon *player_pokemon, Pokemon *cpu_pokemon, Game * new_game);
 
 float typeRelation (int atk_type, int def_type);
 
+void freeBattleLog(BattleLog * log);
+
+void freeGame(Game * new_game);
+
 #endif // BATTLE_H

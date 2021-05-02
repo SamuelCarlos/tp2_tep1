@@ -33,7 +33,7 @@ void mainMenu()
 
         }while(!is_valid_option);
         
-        // trash = system("clear");
+        trash = system("clear");
 
         switch (option)
         {
@@ -60,7 +60,8 @@ void playGame()
     Pokemon * cpu_pokemon;
     Player *player;
     char *name;
-    int pokemonsQuantity = 0, i, player_choice;
+    char trash;
+    int pokemonsQuantity = 0, i, player_choice, player_score = 0;
     int battle_result, player_defeated = 0, random_pokemon;
 
     printf("Digite seu nome: ");
@@ -70,6 +71,8 @@ void playGame()
     player = allocPlayer();
 
     name = getUserName();
+
+    trash = system("clear");
 
     user_pokemons = addPokemonOnList(user_pokemons);
     last_user_pokemon = user_pokemons;
@@ -93,16 +96,22 @@ void playGame()
 
     random_pokemon = randomPokemonNumber(new_game, pokemonsQuantity);
 
-    printf("%d\n", random_pokemon);
-    getchar();
     cpu_pokemon = createPokemon(cpu_pokemon);
     cpu_pokemon = copyPokemon(cpu_pokemon, readPokemonFromList(pokemons, random_pokemon));
 
+
     do {
+        trash = system("clear");
         battle_result = battle(readPokemonFromList(user_pokemons, 0), cpu_pokemon, new_game);
 
         switch (battle_result)
         {
+            case 3: 
+                freePokemon(cpu_pokemon);
+                cpu_pokemon = createPokemon(cpu_pokemon);
+                random_pokemon = randomPokemonNumber(new_game, pokemonsQuantity);
+                cpu_pokemon = copyPokemon(cpu_pokemon, readPokemonFromList(pokemons, random_pokemon));
+                break;
             case 2:
                 last_user_pokemon = addPokemonOnList(last_user_pokemon);
                 last_user_pokemon = attributePokemonToCell(last_user_pokemon, readPokemonFromList(pokemons, random_pokemon));
@@ -110,12 +119,14 @@ void playGame()
                 cpu_pokemon = createPokemon(cpu_pokemon);
                 random_pokemon = randomPokemonNumber(new_game, pokemonsQuantity);
                 cpu_pokemon = copyPokemon(cpu_pokemon, readPokemonFromList(pokemons, random_pokemon));
+                player_score++;
                 break;
             case 1:
                 freePokemon(cpu_pokemon);
                 cpu_pokemon = createPokemon(cpu_pokemon);
                 random_pokemon = randomPokemonNumber(new_game, pokemonsQuantity);
                 cpu_pokemon = copyPokemon(cpu_pokemon, readPokemonFromList(pokemons, random_pokemon));
+                player_score++;
                 break;
             case 0:
                 user_pokemons = removePokemonFromList(user_pokemons, 0);
@@ -126,12 +137,13 @@ void playGame()
         }
     }while(!player_defeated);
 
-    printf("VOCE PERDEU\n");
+    printf("%s, VOCE PERDEU e fez %d pontos!\n", name, player_score);
 
+    freePokemon(cpu_pokemon);
     free(name);
     freePlayer(player);
     freePokemonList(pokemons);
-    freePokemonList(user_pokemons);
+    freeGame(new_game);
 }
 
 int randomPokemonNumber(Game* new_game, int pokemon_quantity)
@@ -140,7 +152,7 @@ int randomPokemonNumber(Game* new_game, int pokemon_quantity)
 
     int lastMew = getGameLastMew(new_game);
 
-    if(random <= (lastMew/128)){
+    if(random <= (float)(lastMew/128)){
         setGameLastMew(new_game, 0);
         return pokemon_quantity - 1;
     }

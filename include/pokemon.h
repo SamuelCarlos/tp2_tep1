@@ -43,6 +43,10 @@ int getPokemonDEF(Pokemon *pokemon);
 
 int getPokemonTYPE(Pokemon *pokemon);
 
-int* getPokemonATTACKS(Pokemon *pokemon);
+int getPokemonATTACKS1(Pokemon *pokemon);
+
+int getPokemonATTACKS2(Pokemon *pokemon);
+
+int getPokemonATTACKS3(Pokemon *pokemon);
 
 #endif // POKEMON_H

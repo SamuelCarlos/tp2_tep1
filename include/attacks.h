@@ -15,6 +15,8 @@ typedef struct DebuffsList DebuffsList;
 
 typedef float (*fptrAttack)(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
 
+typedef void (*fptrDebuff)(int* conditions, Pokemon * pokemon, int is_removing);
+
 void freeAttack(Attack *attack);
 
 Attack ** readAttacks(int *attacksquantity);
@@ -30,6 +32,8 @@ float attackPokemon(int attack, int attacker_atk, int deffender_def, DebuffsList
 float calcDamage(int power, int A, int D, int is_MT);
 
 float calcRandomThings(float probability);
+
+int findDebuffOnList(int type, DebuffsList * debuff_list);
 
 float attack1(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
 
@@ -59,7 +63,38 @@ float attack13(int attacker_atk, int deffender_def, DebuffsList* attacker_debuff
 
 float attack14(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
 
-
 DebuffsList * createDebuff(DebuffsList * debuff_list);
+
+void freeDebuffsList(DebuffsList * debuff_list);
+
+DebuffsList * getLastDebuff(DebuffsList * debuff_list);
+
+DebuffsList * getFirstDebuff(DebuffsList * debuff_list);
+
+void printDebuffsList(DebuffsList * debuff_list);
+
+void modifyStartPositionDebuffsList(DebuffsList * list);
+
+void loadDispatchDebuff();
+
+void passTurn(DebuffsList * debuffs_list);
+
+void debuffPokemon(int * conditions, Pokemon * pokemon, DebuffsList * debuffs_list);
+
+void debuff1(int * conditions, Pokemon * pokemon, int is_removing);
+
+void debuff2(int * conditions, Pokemon * pokemon, int is_removing);
+
+void debuff3(int * conditions, Pokemon * pokemon, int is_removing);
+
+void debuff4(int * conditions, Pokemon * pokemon, int is_removing);
+
+void debuff5(int * conditions, Pokemon * pokemon, int is_removing);
+
+void debuff6(int * conditions, Pokemon * pokemon, int is_removing);
+
+void debuff7(int * conditions, Pokemon * pokemon, int is_removing);
+
+void debuff8(int * conditions, Pokemon * pokemon, int is_removing);
 
 #endif // ATTACKS_H

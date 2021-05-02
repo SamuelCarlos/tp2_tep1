@@ -1,14 +1,14 @@
 #include "attacks.h"
 #include "battle.h"
 
-typedef float (*fptrAttack)(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
-
 fptrAttack doAttack[15];
+
+fptrDebuff doDebuff[9];
 struct Attack {
     char *name;
-    int is_damage_dealer;   // boolean
+    int is_damage_dealer;   
     int power;
-    int is_MT;              // boolean
+    int is_MT;              
 };
 
 struct Debuffs {
@@ -20,6 +20,7 @@ struct DebuffsList {
     Debuffs * debuff;
     DebuffsList * start;
     DebuffsList * next;
+    DebuffsList * last;
 };
 
 Attack ** readAttacks(int *attacksquantity)
@@ -113,6 +114,7 @@ void freeAttacks(Attack **attacks, int attacksQuantity)
         freeAttack(attacks[i]);
         i++;
     }while(i <= attacksQuantity);
+    free(attacks);
 }
 
 void loadDispatchAttack()
@@ -150,7 +152,7 @@ float calcDamage(int power, int A, int D, int is_MT)
     float dmg, MT = 1;
     int crit = 1;
 
-    if(calcRandomThings(1/24)) crit = 2;
+    if(calcRandomThings((float) 1/24)) crit = 2;
     if(is_MT) MT = 1.5;
 
     dmg = ((14 * power * A/D) / 50 + 2) * crit * MT;
@@ -169,14 +171,26 @@ float calcRandomThings(float probability) {
     }
 }
 
+int findDebuffOnList(int type, DebuffsList * debuff_list)
+{
+    DebuffsList * actual_cell = debuff_list;
+
+    do{
+        if(actual_cell->debuff->type == type) return 1;
+        actual_cell = actual_cell->next;
+    }while(actual_cell != NULL);
+
+    return 0;
+}
+
 float attack1(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs)
 {
     float dmg;
     
     dmg = calcDamage(40, attacker_atk, deffender_def, 1);
 
-    if(calcRandomThings(1/10))
-    {
+    if(calcRandomThings((float) 1/10))
+    {  
         deffender_debuffs = createDebuff(deffender_debuffs);
         deffender_debuffs->debuff->type = 0;
         deffender_debuffs->debuff->roundsLeft = 1;
@@ -187,10 +201,13 @@ float attack1(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs
 
 float attack2(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs)
 {
-    deffender_debuffs = createDebuff(deffender_debuffs);
-    deffender_debuffs->debuff->type = 0;
-    deffender_debuffs->debuff->roundsLeft = 1;
-
+    if(!findDebuffOnList(0, deffender_debuffs)){
+        deffender_debuffs = createDebuff(deffender_debuffs);
+        deffender_debuffs->debuff->type = 0;
+        deffender_debuffs->debuff->roundsLeft = 1;
+    }else{
+        printf("JA TA QUEIMANDOOOOO\n");
+    }
     return 0;
 }
 
@@ -209,7 +226,7 @@ float attack4(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs
     
     dmg = calcDamage(90, attacker_atk, deffender_def, 1);
 
-    if(calcRandomThings(1/10))
+    if(calcRandomThings((float) 1/10))
     {
         deffender_debuffs = createDebuff(deffender_debuffs);
         deffender_debuffs->debuff->type = 1;
@@ -330,15 +347,220 @@ DebuffsList * createDebuff(DebuffsList * debuff_list)
     {
         debuff_list = (DebuffsList*) calloc(1, sizeof(DebuffsList));
         debuff_list->debuff = (Debuffs*) calloc(1, sizeof(Debuffs));
+        debuff_list->debuff->type = -1;
         debuff_list->start = debuff_list;
         debuff_list->next = NULL;
+        debuff_list->last = debuff_list;
     }else{
         debuff_list->next = (DebuffsList*) calloc(1, sizeof(DebuffsList));
         debuff_list->next->start = debuff_list->start;
         debuff_list = debuff_list->next;
         debuff_list->debuff = (Debuffs*) calloc(1, sizeof(Debuffs));
+        debuff_list->debuff->type = -1;
         debuff_list->next = NULL;
+        debuff_list->last = debuff_list;
     }
 
     return debuff_list;
+}
+
+void freeDebuffsList(DebuffsList * debuff_list)
+{
+    DebuffsList * actual_cell;
+
+    actual_cell = debuff_list;
+
+    do{
+        debuff_list = actual_cell;
+        actual_cell = actual_cell->next;
+        free(debuff_list->debuff);
+        free(debuff_list);
+    }while(actual_cell != NULL);
+
+}
+
+DebuffsList * getLastDebuff(DebuffsList * debuff_list)
+{
+    DebuffsList * actual_cell;
+    actual_cell = debuff_list;
+
+    while(actual_cell->next != NULL) {
+        actual_cell = actual_cell->next;
+    }
+
+    return actual_cell;
+}
+
+DebuffsList * getFirstDebuff(DebuffsList * debuff_list)
+{
+    return debuff_list->start;
+}
+
+void printDebuffsList(DebuffsList * debuff_list)
+{
+    DebuffsList * actual_cell;
+    int i = 0;
+
+    actual_cell = debuff_list;
+
+    do{
+        printf("[tipo %d falta %d]", actual_cell->debuff->type, actual_cell->debuff->roundsLeft);
+        i++;
+        actual_cell = actual_cell->next;
+    }while(actual_cell != NULL);
+}
+
+void modifyStartPositionDebuffsList(DebuffsList * list)
+{
+    DebuffsList * actual_cell = list;
+    DebuffsList * start_cell = list;
+
+    do{
+        actual_cell->start = start_cell;
+        actual_cell = actual_cell->next;
+    }while(actual_cell != NULL);
+}
+
+void loadDispatchDebuff(){
+    doDebuff[0] = debuff1;
+    doDebuff[1] = debuff2;
+    doDebuff[2] = debuff3;
+    doDebuff[3] = debuff4;
+    doDebuff[4] = debuff5;
+    doDebuff[5] = debuff6;
+    doDebuff[6] = debuff7;
+    doDebuff[7] = debuff8;
+}
+
+void passTurn(DebuffsList * debuffs_list)
+{
+    DebuffsList * actual_debuff;
+
+    do{
+        actual_debuff->debuff->roundsLeft--;
+        actual_debuff = actual_debuff->next;
+    }while(actual_debuff != NULL);
+}
+
+void debuffPokemon(int * conditions, Pokemon * pokemon, DebuffsList * debuffs_list)
+{
+    fptrDebuff dbff;
+    DebuffsList * actual_debuff = debuffs_list;
+    DebuffsList * next_debuff = NULL;
+    DebuffsList * previous_debuff = NULL;
+    int is_removing;
+
+    
+    do{
+        is_removing = 0;
+
+        next_debuff = actual_debuff->next;
+        if(actual_debuff->debuff->type >= 0) {
+            dbff = doDebuff[actual_debuff->debuff->type];
+
+            if(actual_debuff->debuff->roundsLeft == 0)
+            {
+                is_removing = 1;
+                if(previous_debuff == NULL)
+                {
+                    actual_debuff->next->start = actual_debuff->next;
+                    modifyStartPositionDebuffsList(actual_debuff->next);
+                }else{
+                    previous_debuff->next = next_debuff;
+                }
+                free(actual_debuff->debuff);
+                free(actual_debuff);
+            }
+            dbff(conditions, pokemon, is_removing);
+        }
+        previous_debuff = actual_debuff;
+        actual_debuff = next_debuff;
+    }while(actual_debuff != NULL);
+    
+}
+
+void debuff1(int * conditions, Pokemon * pokemon, int is_removing)
+{
+    if(is_removing)
+    {
+        conditions[0] = 0;
+    }else
+    {
+        conditions[0] = 1;
+    }
+}
+
+void debuff2(int * conditions, Pokemon * pokemon, int is_removing)
+{
+    
+    conditions[1] = 1;
+
+    setPokemonActualHP(pokemon, getPokemonActualHP(pokemon) - (getPokemonHP(pokemon)/16));
+}
+
+void debuff3(int * conditions, Pokemon * pokemon, int is_removing)
+{
+    if(is_removing)
+    {
+        conditions[2] = 0;
+        setPokemonActualHP(pokemon, getPokemonHP(pokemon));
+    }else
+    {
+        conditions[2] = 1;
+    }
+}
+
+void debuff4(int * conditions, Pokemon * pokemon, int is_removing)
+{
+    if(is_removing)
+    {
+        conditions[3] = 0;
+    }else
+    {
+        conditions[3] = 1;
+    }
+}
+
+void debuff5(int * conditions, Pokemon * pokemon, int is_removing)
+{
+    if(is_removing)
+    {
+        conditions[2] = 0;
+    }else
+    {
+        conditions[2] = 1;
+    }
+}
+
+void debuff6(int * conditions, Pokemon * pokemon, int is_removing)
+{
+    if(is_removing)
+    {
+        conditions[5] = 0;
+    }else
+    {
+        conditions[5] = 1;
+    }
+}
+
+void debuff7(int * conditions, Pokemon * pokemon, int is_removing)
+{
+    if(is_removing)
+    {
+        conditions[4] = 0;
+    }else
+    {
+        conditions[4] = 1;
+    }
+}
+
+void debuff8(int * conditions, Pokemon * pokemon, int is_removing)
+{
+    if(is_removing)
+    {
+        conditions[6] = 0;
+    }else
+    {
+        conditions[6] = 1;
+    }
 }

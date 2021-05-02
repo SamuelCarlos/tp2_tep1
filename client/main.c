@@ -5,7 +5,7 @@
 
 int main (int argc, char *argv[])
 {
-    int seed = 666;
+    int seed = 12;
     srand(seed);
     mainMenu();
 

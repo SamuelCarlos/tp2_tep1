@@ -269,9 +269,22 @@ int getPokemonTYPE(Pokemon *pokemon)
     return pokemon->type;
 }
 
-int* getPokemonATTACKS(Pokemon *pokemon)
+int getPokemonATTACKS1(Pokemon *pokemon)
 {
-    return pokemon->attacks;
+    int atk = pokemon->attacks[0];
+    return atk;
+}
+
+int getPokemonATTACKS2(Pokemon *pokemon)
+{
+    int atk = pokemon->attacks[1];
+    return atk;
+}
+
+int getPokemonATTACKS3(Pokemon *pokemon)
+{
+    int atk = pokemon->attacks[2];
+    return atk;
 }
 
 Pokemon * copyPokemon(Pokemon *poke, Pokemon *poke2)
