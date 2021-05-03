@@ -13,7 +13,7 @@ typedef struct Debuffs Debuffs;
 
 typedef struct DebuffsList DebuffsList;
 
-typedef float (*fptrAttack)(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
+typedef void (*fptrAttack)(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation);
 
 typedef void (*fptrDebuff)(int* conditions, Pokemon * pokemon, int is_removing);
 
@@ -27,7 +27,7 @@ void freeAttacks(Attack **attacks, int attacksQuantity);
 
 void loadDispatchAttack();
 
-float attackPokemon(int attack, int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
+void attackPokemon(int attack, Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation);
 
 float calcDamage(int power, int A, int D, int is_MT);
 
@@ -35,33 +35,33 @@ float calcRandomThings(float probability);
 
 int findDebuffOnList(int type, DebuffsList * debuff_list);
 
-float attack1(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
+void attack1(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation);
 
-float attack2(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
+void attack2(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation);
 
-float attack3(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
+void attack3(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation);
 
-float attack4(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
+void attack4(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation);
 
-float attack5(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
+void attack5(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation);
 
-float attack6(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
+void attack6(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation);
 
-float attack7(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
+void attack7(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation);
 
-float attack8(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
+void attack8(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation);
 
-float attack9(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
+void attack9(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation);
 
-float attack10(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
+void attack10(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation);
 
-float attack11(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
+void attack11(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation);
 
-float attack12(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
+void attack12(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation);
 
-float attack13(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
+void attack13(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation);
 
-float attack14(int attacker_atk, int deffender_def, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs);
+void attack14(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation);
 
 DebuffsList * createDebuff(DebuffsList * debuff_list);
 
