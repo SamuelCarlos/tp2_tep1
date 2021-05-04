@@ -257,7 +257,7 @@ void attack7(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
 
 void attack8(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
 {
-    int roundsLeft = (int) 2 + (rand() % 4);
+    int roundsLeft = (int) (1 + (rand() % 2)) * 2;
     deffender_debuffs = createDebuff(deffender_debuffs);
     deffender_debuffs->debuff->type = 4;
     deffender_debuffs->debuff->roundsLeft = roundsLeft;
@@ -454,12 +454,14 @@ void debuffPokemon(int * conditions, Pokemon * pokemon, DebuffsList * debuffs_li
                 }else{
                     previous_debuff->next = next_debuff;
                 }
+                
                 free(actual_debuff->debuff);
                 free(actual_debuff);
             }
             dbff(conditions, pokemon, is_removing);
         }
-        previous_debuff = actual_debuff;
+        
+        if(!is_removing) previous_debuff = actual_debuff;
         actual_debuff = next_debuff;
     }while(actual_debuff != NULL);
     

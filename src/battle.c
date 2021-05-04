@@ -153,8 +153,13 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
 
         if(emerging) {
             is_disabled = 1;
-            dmg = calcDamage(80, getPokemonATK(attacker), getPokemonDEF(deffender), 0) * type_relation;
-            setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
+            if(deffender_conditions[4] || deffender_conditions[3])
+            {
+                printf("Emergir bloqueado!\n\n");
+            }else{
+                dmg = calcDamage(80, getPokemonATK(attacker), getPokemonDEF(deffender), 0) * type_relation;
+                setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
+            }
         }   
         emerging = 0;
 
@@ -219,7 +224,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
             case 1:
                 printPokemon(attacker);
                 printf(" usou %s.\n", getAttackName(attacks[pokemon_attacks[option-1]]));
-                if(deffender_conditions[3] || deffender_conditions[4]) {
+                if((deffender_conditions[3] || deffender_conditions[4]) && (pokemon_attacks[option-1] != 4) && (pokemon_attacks[option-1] != 6) && (pokemon_attacks[option-1] != 11)) {
                     printf("Ataque bloqueado!\n");
                 }else{
                     attackPokemon(pokemon_attacks[0] + 1, attacker, deffender, getLastDebuff(attacker_debuffs), getLastDebuff(deffender_debuffs), type_relation);
@@ -230,7 +235,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
             case 2:
                 printPokemon(attacker);
                 printf(" usou %s.\n", getAttackName(attacks[pokemon_attacks[option-1]]));
-                if(deffender_conditions[3] || deffender_conditions[4]) {
+                if((deffender_conditions[3] || deffender_conditions[4]) && (pokemon_attacks[option-1] != 4) && (pokemon_attacks[option-1] != 6) && (pokemon_attacks[option-1] != 11)) {
                     printf("Ataque bloqueado!\n");
                 }else{
                     attackPokemon(pokemon_attacks[1] + 1, attacker, deffender, getLastDebuff(attacker_debuffs), getLastDebuff(deffender_debuffs), type_relation);
@@ -241,7 +246,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
             case 3:
                 printPokemon(attacker);
                 printf(" usou %s.\n", getAttackName(attacks[pokemon_attacks[option-1]]));
-                if(deffender_conditions[3] || deffender_conditions[4]) {
+                if((deffender_conditions[3] || deffender_conditions[4]) && (pokemon_attacks[option-1] != 4) && (pokemon_attacks[option-1] != 6) && (pokemon_attacks[option-1] != 11)) {
                     printf("Ataque bloqueado!\n");
                 }else{
                     attackPokemon(pokemon_attacks[2] + 1, attacker, deffender, getLastDebuff(attacker_debuffs), getLastDebuff(deffender_debuffs), type_relation);

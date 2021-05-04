@@ -7,7 +7,7 @@
 
 void mainMenu()
 {
-    int option, is_valid_option, ending = 0;
+    int option, is_valid_option = 1, ending = 0;
     char trash;
 
     do 
