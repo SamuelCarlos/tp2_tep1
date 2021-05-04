@@ -55,14 +55,15 @@ void mainMenu()
 
 void playGame()
 {
+    FILE * log;
     Game * new_game;
-    PokemonsList *pokemons, *user_pokemons = NULL, *last_user_pokemon = NULL;
-    Pokemon * cpu_pokemon;
     Player *player;
+    Pokemon * cpu_pokemon;
+    PokemonsList *pokemons, *user_pokemons = NULL, *last_user_pokemon = NULL;
     char *name;
     char trash;
-    int pokemonsQuantity = 0, i, player_choice, player_score = 0;
     int battle_result, player_defeated = 0, random_pokemon;
+    int pokemonsQuantity = 0, i, player_choice, player_score = 0;
 
     printf("Digite seu nome: ");
 
@@ -86,6 +87,7 @@ void playGame()
         player_choice = getUserNumberInput(1, pokemonsQuantity - i);
         last_user_pokemon = attributePokemonToCell(last_user_pokemon, readPokemonFromList(pokemons, player_choice));
         pokemons = removePokemonFromList(pokemons, player_choice - 1);
+        trash = system("clear");
     }
     // reset pokemons list
     freePokemonList(pokemons);
@@ -137,7 +139,8 @@ void playGame()
         }
     }while(!player_defeated);
 
-    printf("%s, VOCE PERDEU e fez %d pontos!\n", name, player_score);
+    printf("Fim de jogo!\n");
+    printf("%s sobreviveu %d rodadas e esta em %d° lugar no placar!\n", name, player_score, 3);
 
     freePokemon(cpu_pokemon);
     free(name);

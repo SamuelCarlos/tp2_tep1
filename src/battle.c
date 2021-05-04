@@ -61,18 +61,18 @@ BattleLog * newBattleLog(BattleLog* battle_log)
 
 int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
 {
-    DebuffsList * player_debuffs = createDebuff(player_debuffs);
-    DebuffsList * cpu_debuffs = createDebuff(cpu_debuffs);
-    DebuffsList * attacker_debuffs;
-    DebuffsList * deffender_debuffs;
-    BattleStage * battle_stage = NULL;
     Pokemon * attacker;
     Pokemon * deffender;
     Attack **attacks = NULL;
+    DebuffsList * attacker_debuffs;
+    DebuffsList * deffender_debuffs;
+    BattleStage * battle_stage = NULL;
+    DebuffsList * cpu_debuffs = createDebuff(cpu_debuffs);
+    DebuffsList * player_debuffs = createDebuff(player_debuffs);
+    char trash;
+    float randomToRun, type_relation, dmg;
     int i, turn = 0, attacksQuantity = 0, option, isPlayerTurn = 1, run_away = 0, captured = 0, player_has_attacked = 0, is_disabled = 0, emerging = 0;
     int * pokemon_attacks, * cpu_conditions, * player_conditions, * attacker_conditions, *deffender_conditions;
-    float randomToRun, type_relation, dmg;
-    char trash;
 
     attacks = readAttacks(&attacksQuantity);
     

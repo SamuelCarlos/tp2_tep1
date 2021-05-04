@@ -11,7 +11,7 @@
 #include "../include/pokemon.h"
 #include "../include/attacks.h"
 
-void mainMenu();
+void mainMenu(char * scoresLocation, char * logsLocation);
 
 void playGame();
 
