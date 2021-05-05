@@ -249,6 +249,11 @@ float getPokemonActualHP(Pokemon *pokemon)
     return pokemon->actual_hp;
 }
 
+char * getPokemonName(Pokemon *pokemon)
+{
+    return pokemon->name;
+}
+
 void setPokemonActualHP(Pokemon *pokemon, float new_hp)
 {
     pokemon->actual_hp = new_hp;

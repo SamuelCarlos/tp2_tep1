@@ -72,3 +72,23 @@ int getUserNumberInput(int min, int max)
     return option;
 }
 
+char *toUpperString(char *string) {
+    int i;
+    char * uppercased;
+
+    uppercased = (char* ) calloc(strlen(string), sizeof(char));
+
+    for(i = 0; i < strlen(string); i++) {
+        if(!isupper(string[i])) 
+        {
+            uppercased[i] = toupper(string[i]);
+        }
+        else
+        {
+            uppercased[i] = string[i];
+        }
+    }
+
+
+    return uppercased;
+}

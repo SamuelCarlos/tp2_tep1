@@ -35,6 +35,8 @@ float getPokemonHP(Pokemon *pokemon);
 
 float getPokemonActualHP(Pokemon *pokemon);
 
+char * getPokemonName(Pokemon *pokemon);
+
 void setPokemonActualHP(Pokemon *pokemon, float new_hp);
 
 int getPokemonATK(Pokemon *pokemon);

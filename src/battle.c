@@ -59,7 +59,7 @@ BattleLog * newBattleLog(BattleLog* battle_log)
     return battle_log;
 }
 
-int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
+int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FILE * logs)
 {
     Pokemon * attacker;
     Pokemon * deffender;
@@ -71,7 +71,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
     DebuffsList * player_debuffs = createDebuff(player_debuffs);
     char trash;
     float randomToRun, type_relation, dmg;
-    int i, turn = 0, attacksQuantity = 0, option, isPlayerTurn = 1, run_away = 0, captured = 0, player_has_attacked = 0, is_disabled = 0, emerging = 0;
+    int i, turn = 0, attacksQuantity = 0, option, isPlayerTurn = 1, run_away = 0, captured = 0, player_has_attacked = 0, is_disabled = 0, emerging = 0, conditions_qtt = 0;
     int * pokemon_attacks, * cpu_conditions, * player_conditions, * attacker_conditions, *deffender_conditions;
 
     attacks = readAttacks(&attacksQuantity);
@@ -101,7 +101,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
     {
         is_disabled = 0;
         pokemon_attacks = (int *) calloc(3, sizeof(int));
-        // trash = system("clear");
+
         if(turn % 2 == 0) {
             deffender = cpu_pokemon;
             attacker = player_pokemon;
@@ -112,7 +112,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
             pokemon_attacks[0] = getPokemonATTACKS1(player_pokemon);
             pokemon_attacks[1] = getPokemonATTACKS2(player_pokemon);
             pokemon_attacks[2] = getPokemonATTACKS3(player_pokemon);
-            isPlayerTurn = 1;        
+            isPlayerTurn = 0;        
         }else{
             attacker = cpu_pokemon;
             deffender = player_pokemon;
@@ -130,6 +130,10 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
             // apply burning damage condition
             if(player_conditions[1]){
                 setPokemonActualHP(player_pokemon, getPokemonActualHP(player_pokemon) - (getPokemonHP(player_pokemon)/16));
+                if(getPokemonActualHP(player_pokemon) < 0)
+                {
+                    break;
+                }
             }
             
             for(i = 0; i < 5; i++)
@@ -162,7 +166,63 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
             }
         }   
         emerging = 0;
-
+        
+         conditions_qtt = 0;
+        fprintf(logs, "\t%s: %.0f%% HP ", getPokemonName(player_pokemon), (getPokemonActualHP(player_pokemon)/getPokemonHP(player_pokemon) * 100));
+        for (i = 0; i < 3; i++)
+        {
+            if(player_conditions[i])
+            {
+                conditions_qtt++;
+            }
+        }
+        if(conditions_qtt > 0){
+            fprintf(logs, "(");
+            if(player_conditions[0]){
+                fprintf(logs, "paralizado");
+                conditions_qtt--;
+                if(conditions_qtt > 0) fprintf(logs, ",");
+            }
+            if(player_conditions[1]){
+                fprintf(logs, "queimando");
+                conditions_qtt--;
+                if(conditions_qtt > 0) fprintf(logs, ",");
+            }
+            if(player_conditions[2]){
+                fprintf(logs, "dormindo");
+                conditions_qtt--;
+            }
+            fprintf(logs, ")");
+        }
+        fprintf(logs, "\n");
+        conditions_qtt = 0;
+        fprintf(logs, "\t%s: %.0f%% HP ", getPokemonName(cpu_pokemon), (getPokemonActualHP(cpu_pokemon)/getPokemonHP(cpu_pokemon) * 100));
+        for (i = 0; i < 3; i++)
+        {
+            if(cpu_conditions[i])
+            {
+                conditions_qtt++;
+            }
+        }
+        if(conditions_qtt > 0){
+            fprintf(logs, "(");
+            if(cpu_conditions[0]){
+                fprintf(logs, "paralizado");
+                conditions_qtt--;
+                if(conditions_qtt > 0) fprintf(logs, ",");
+            }
+            if(cpu_conditions[1]){
+                fprintf(logs, "queimando");
+                conditions_qtt--;
+                if(conditions_qtt > 0) fprintf(logs, ",");
+            }
+            if(cpu_conditions[2]){
+                fprintf(logs, "dormindo");
+                conditions_qtt--;
+            }
+            fprintf(logs, ")");
+        }
+        fprintf(logs, "\n\n");
         /**
          * Print pokemons data on screen;
          */
@@ -185,14 +245,13 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
         if(player_conditions[4]) printf(" enterrado ");
         printf(")\n\n");
         
-        getchar();
+        // getchar();
 
         if(!is_disabled){
             if(isPlayerTurn) {
                 do {
                     if(option == 4)
                     {
-                        // trash = system("clear");
                         printf("Voce nao possui pokebolas!\n");
                     }
                     option = 0;
@@ -213,7 +272,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
             printf(" esta incapacitado.\n");
         }
 
-        trash = system("clear");
+        // trash = system("clear");
 
         if(deffender_conditions[4])
         {
@@ -222,6 +281,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
         switch (option)
         {
             case 1:
+                fprintf(logs, "\t%s usa %s\n", getPokemonName(attacker), getAttackName(attacks[pokemon_attacks[option-1]]));
                 printPokemon(attacker);
                 printf(" usou %s.\n", getAttackName(attacks[pokemon_attacks[option-1]]));
                 if((deffender_conditions[3] || deffender_conditions[4]) && (pokemon_attacks[option-1] != 4) && (pokemon_attacks[option-1] != 6) && (pokemon_attacks[option-1] != 11)) {
@@ -233,6 +293,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
                 }
                 break;
             case 2:
+                fprintf(logs, "\t%s usa %s\n", getPokemonName(attacker), getAttackName(attacks[pokemon_attacks[option-1]]));
                 printPokemon(attacker);
                 printf(" usou %s.\n", getAttackName(attacks[pokemon_attacks[option-1]]));
                 if((deffender_conditions[3] || deffender_conditions[4]) && (pokemon_attacks[option-1] != 4) && (pokemon_attacks[option-1] != 6) && (pokemon_attacks[option-1] != 11)) {
@@ -244,6 +305,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
                 }
                 break;
             case 3:
+                fprintf(logs, "\t%s usa %s\n", getPokemonName(attacker), getAttackName(attacks[pokemon_attacks[option-1]]));
                 printPokemon(attacker);
                 printf(" usou %s.\n", getAttackName(attacks[pokemon_attacks[option-1]]));
                 if((deffender_conditions[3] || deffender_conditions[4]) && (pokemon_attacks[option-1] != 4) && (pokemon_attacks[option-1] != 6) && (pokemon_attacks[option-1] != 11)) {
@@ -255,6 +317,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
                 }
                 break;
             case 4: 
+                fprintf(logs, "\tTentativa de Captura\n");
                 printf("Voce tentou capturar o ");
                 printPokemon(deffender);
                 printf(" e");
@@ -262,13 +325,16 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
                 if(calcRandomThings((float) (getPokemonHP(cpu_pokemon)/getPokemonActualHP(cpu_pokemon))/20))
                 {
                     captured = 1;
+                    fprintf(logs, "\tSucesso\n\n");
                     printf(" conseguiu!\n");
-                    getchar();
+                    // getchar();
                 }else{
+                    fprintf(logs, "\tFracasso\n\n");
                     printf(" falhou!\n");
                 }
                 break;
             case 5:
+                fprintf(logs, "\tTentativa de Fuga\n");
                 printf("Voce tentou fugir e ");
                 battle_stage->escapeTries++;
 
@@ -281,16 +347,19 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
 
                 if(randomToRun){ 
                     run_away = 1;
+                    fprintf(logs, "\tSucesso\n\n");
                     printf("conseguiu!\n");
-                    getchar();
+                    // getchar();
                 }else{
+                    fprintf(logs, "\tFracasso\n\n");
                     printf("falhou!\n");
                 }
                 break;
             default:
                 break;
         }
-        // trash = system("clear");
+
+       
         passTurn(getFirstDebuff(player_debuffs));
         passTurn(getFirstDebuff(cpu_debuffs));
         debuffPokemon(attacker_conditions, attacker, getFirstDebuff(attacker_debuffs));
@@ -301,7 +370,6 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
         if(run_away || captured) break;
     }while(getPokemonActualHP(cpu_pokemon) > 0 && getPokemonActualHP(player_pokemon) > 0);
     
-    // trash = system("clear");
     
     for(i = 0; i < 7; i++)
     {
@@ -309,7 +377,6 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game)
         battle_stage->player_conditions[i] = player_conditions[i];
     }
     
-
     free(cpu_conditions);
     free(player_conditions);
     freeAttacks(attacks, attacksQuantity);

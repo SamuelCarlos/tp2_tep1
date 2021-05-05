@@ -21,7 +21,7 @@ int getGameLastMew(Game * game);
 
 void setGameLastMew(Game * game, int last_mew);
 
-int battle(Pokemon *player_pokemon, Pokemon *cpu_pokemon, Game * new_game);
+int battle(Pokemon *player_pokemon, Pokemon *cpu_pokemon, Game * new_game, FILE * logs);
 
 float typeRelation (int atk_type, int def_type);
 
