@@ -112,7 +112,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FIL
             pokemon_attacks[0] = getPokemonATTACKS1(player_pokemon);
             pokemon_attacks[1] = getPokemonATTACKS2(player_pokemon);
             pokemon_attacks[2] = getPokemonATTACKS3(player_pokemon);
-            isPlayerTurn = 0;        
+            isPlayerTurn = 1;        
         }else{
             attacker = cpu_pokemon;
             deffender = player_pokemon;
@@ -245,7 +245,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FIL
         if(player_conditions[4]) printf(" enterrado ");
         printf(")\n\n");
         
-        // getchar();
+        getchar();
 
         if(!is_disabled){
             if(isPlayerTurn) {
@@ -272,7 +272,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FIL
             printf(" esta incapacitado.\n");
         }
 
-        // trash = system("clear");
+        trash = system("clear");
 
         if(deffender_conditions[4])
         {
@@ -327,7 +327,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FIL
                     captured = 1;
                     fprintf(logs, "\tSucesso\n\n");
                     printf(" conseguiu!\n");
-                    // getchar();
+                    getchar();
                 }else{
                     fprintf(logs, "\tFracasso\n\n");
                     printf(" falhou!\n");
@@ -349,7 +349,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FIL
                     run_away = 1;
                     fprintf(logs, "\tSucesso\n\n");
                     printf("conseguiu!\n");
-                    // getchar();
+                    getchar();
                 }else{
                     fprintf(logs, "\tFracasso\n\n");
                     printf("falhou!\n");
