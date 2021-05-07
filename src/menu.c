@@ -178,6 +178,6 @@ int randomPokemonNumber(Game* new_game, int pokemon_quantity)
     }
     else{
         setGameLastMew(new_game, lastMew + 1);
-        return (int) (1 + rand() % (pokemon_quantity - 1));
+        return (int) (1 + rand() % (pokemon_quantity-1));
     }
 }

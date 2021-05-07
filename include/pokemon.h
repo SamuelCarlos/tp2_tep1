@@ -51,4 +51,8 @@ int getPokemonATTACKS2(Pokemon *pokemon);
 
 int getPokemonATTACKS3(Pokemon *pokemon);
 
+int getIsVulnerable(Pokemon *pokemon);
+
+void setIsVulnerable(Pokemon *pokemon, int vulnerable);
+
 #endif // POKEMON_H

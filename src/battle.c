@@ -253,7 +253,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FIL
                     option = getUserNumberInput(1, 5);
                 }while(option == 4 && new_game->player_pokeballs == 0);
             }else{
-                option = (int) 1 + rand() % 2;
+                option = (int) 1 + (rand() % 3);
             }
         }else{
             printPokemon(attacker);
@@ -272,57 +272,72 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FIL
                 fprintf(logs, "\t%s usa %s ", getPokemonName(attacker), getAttackName(attacks[pokemon_attacks[option-1]]));
                 printPokemon(attacker);
                 printf(" usou ");
-                if((deffender_conditions[3] || deffender_conditions[4]) && (pokemon_attacks[option-1] != 4) && (pokemon_attacks[option-1] != 6) && (pokemon_attacks[option-1] != 11)) {
-                    printf("%s.\n", getAttackName(attacks[pokemon_attacks[option-1]]));
-                    printf("Ataque bloqueado!\n");
-                }else{
-                    attackPokemon(pokemon_attacks[0] + 1, attacker, deffender, getLastDebuff(attacker_debuffs), getLastDebuff(deffender_debuffs), type_relation);
-                    if(pokemon_attacks[option-1] == 12)
-                    {
-                        randomToAttack = (int) (rand() % 13);
-
-                        while (randomToAttack == 13)
-                        {
-                            randomToAttack = (int) (rand() % 13);
-                        }
-                        fprintf(logs, "(%s)", getAttackName(attacks[(int) randomToAttack]));
-                        printf(" (");
-                        attackPokemon(randomToAttack, attacker, deffender, getLastDebuff(attacker_debuffs), getLastDebuff(deffender_debuffs), type_relation);
-                        printf(")");
-                    }
-                    printf("\n");
-                    if(type_relation > 1) printf("Eh muito efetivo!\n");
-                    if(type_relation < 1) printf("Eh pouco efetivo!\n");
+                if((deffender_conditions[3] || deffender_conditions[4])) 
+                {
+                    setIsVulnerable(deffender,0);
                 }
+                else
+                {
+                    setIsVulnerable(deffender,1);
+                }
+                attackPokemon(pokemon_attacks[0] + 1, attacker, deffender, getLastDebuff(attacker_debuffs), getLastDebuff(deffender_debuffs), type_relation);
+                if(pokemon_attacks[option-1] == 12)
+                {
+                    randomToAttack = 1 + (rand() % 14);
+
+                    while (randomToAttack == 13)
+                    {
+                        randomToAttack = 1 + (rand() % 14);
+                    }
+                    fprintf(logs, "(%s)", getAttackName(attacks[(int) randomToAttack]));
+                    printf(" (");
+                    printf("%d",randomToAttack);
+                    getchar();
+                    attackPokemon(randomToAttack, attacker, deffender, getLastDebuff(attacker_debuffs), getLastDebuff(deffender_debuffs), type_relation);
+                    printf(")");
+                }
+                printf("\n");
+                if(type_relation > 1) printf("Eh muito efetivo!\n");
+                if(type_relation < 1) printf("Eh pouco efetivo!\n");
+            
                 fprintf(logs, "\n");
                 break;
             case 2:
                 fprintf(logs, "\t%s usa %s\n", getPokemonName(attacker), getAttackName(attacks[pokemon_attacks[option-1]]));
                 printPokemon(attacker);
                 printf(" usou ");
-                if((deffender_conditions[3] || deffender_conditions[4]) && (pokemon_attacks[option-1] != 4) && (pokemon_attacks[option-1] != 6) && (pokemon_attacks[option-1] != 11)) {
-                    printf("%s.\n", getAttackName(attacks[pokemon_attacks[option-1]]));
-                    printf("Ataque bloqueado!\n");
-                }else{
-                    attackPokemon(pokemon_attacks[1] + 1, attacker, deffender, getLastDebuff(attacker_debuffs), getLastDebuff(deffender_debuffs), type_relation);
-                    printf("\n");
-                    if(type_relation > 1) printf("Eh muito efetivo!\n");
-                    if(type_relation < 1) printf("Eh pouco efetivo!\n");
+               if((deffender_conditions[3] || deffender_conditions[4])) 
+                {
+                    setIsVulnerable(deffender,0);
                 }
+                else
+                {
+                    setIsVulnerable(deffender,1);
+                }
+                attackPokemon(pokemon_attacks[1] + 1, attacker, deffender, getLastDebuff(attacker_debuffs), getLastDebuff(deffender_debuffs), type_relation);
+                printf("\n");
+                if(type_relation > 1) printf("Eh muito efetivo!\n");
+                if(type_relation < 1) printf("Eh pouco efetivo!\n");
+            
                 break;
             case 3:
                 fprintf(logs, "\t%s usa %s\n", getPokemonName(attacker), getAttackName(attacks[pokemon_attacks[option-1]]));
                 printPokemon(attacker);
                 printf(" usou ");
-                if((deffender_conditions[3] || deffender_conditions[4]) && (pokemon_attacks[option-1] != 4) && (pokemon_attacks[option-1] != 6) && (pokemon_attacks[option-1] != 11)) {
-                    printf("%s.\n", getAttackName(attacks[pokemon_attacks[option-1]]));
-                    printf("Ataque bloqueado!\n");
-                }else{
-                    attackPokemon(pokemon_attacks[2] + 1, attacker, deffender, getLastDebuff(attacker_debuffs), getLastDebuff(deffender_debuffs), type_relation);
-                    printf("\n");
-                    if(type_relation > 1) printf("Eh muito efetivo!\n");
-                    if(type_relation < 1) printf("Eh pouco efetivo!\n");
+                if((deffender_conditions[3] || deffender_conditions[4])) 
+                {
+                    setIsVulnerable(deffender,0);
                 }
+                else
+                {
+                    setIsVulnerable(deffender,1);
+                }
+
+                attackPokemon(pokemon_attacks[2] + 1, attacker, deffender, getLastDebuff(attacker_debuffs), getLastDebuff(deffender_debuffs), type_relation);
+                printf("\n");
+                if(type_relation > 1) printf("Eh muito efetivo!\n");
+                if(type_relation < 1) printf("Eh pouco efetivo!\n");
+
                 break;
             case 4: 
                 fprintf(logs, "\tTentativa de Captura\n");

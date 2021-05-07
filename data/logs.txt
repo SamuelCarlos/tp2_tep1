@@ -1,423 +1,113 @@
-1.1- Mew vs Pikachu
+1.1- Mew vs Steelix
 	Mew: 100% HP 
-	Pikachu: 100% HP 
+	Steelix: 100% HP 
+
+	Mew usa Metronomo (Proteger)
+	Mew: 100% HP 
+	Steelix: 98% HP 
+
+	Steelix usa Cavar
+	Mew: 100% HP 
+	Steelix: 98% HP 
+
+	Mew usa Metronomo (Arma de Agua)
+	Mew: 87% HP (dormindo)
+	Steelix: 98% HP 
+
+	Mew: 87% HP (dormindo)
+	Steelix: 98% HP 
+
+	Mew: 87% HP (dormindo)
+	Steelix: 98% HP 
+
+	Steelix usa Cavar
+	Mew: 100% HP 
+	Steelix: 98% HP 
+
+	Mew usa Metronomo (Po de Sono)
+	Mew: 100% HP 
+	Steelix: 98% HP 
+
+	Mew: 100% HP 
+	Steelix: 98% HP 
+
+	Mew usa Metronomo (Po de Sono)
+	Mew: 100% HP 
+	Steelix: 98% HP 
+
+	Steelix usa Cavar
+	Mew: 100% HP 
+	Steelix: 98% HP 
+
+	Mew usa Metronomo (Proteger)
+	Mew: 93% HP 
+	Steelix: 98% HP 
+
+	Mew: 93% HP 
+	Steelix: 98% HP 
+
+	Mew usa Metronomo (Metronomo)
+	Mew: 93% HP 
+	Steelix: 98% HP 
+
+	Steelix usa Cavar
+	Mew: 93% HP 
+	Steelix: 98% HP 
+
+	Mew: 87% HP 
+	Steelix: 98% HP 
+
+	Mew: 87% HP 
+	Steelix: 98% HP 
 
 	Mew usa Metronomo (Bomba de Semente)
+	Mew: 87% HP 
+	Steelix: 98% HP (dormindo)
+
+	Mew: 87% HP 
+	Steelix: 98% HP (dormindo)
+
+	Mew usa Metronomo (Proteger)
+	Mew: 87% HP 
+	Steelix: 96% HP (dormindo)
+
+	Mew: 87% HP 
+	Steelix: 96% HP (dormindo)
+
+	Mew usa Metronomo (Arma de Agua)
+	Mew: 87% HP (dormindo)
+	Steelix: 96% HP (dormindo)
+
+	Mew: 87% HP (dormindo)
+	Steelix: 96% HP 
+
+	Mew: 87% HP (dormindo)
+	Steelix: 96% HP 
+
+	Steelix usa Rabo de Ferro 
 	Mew: 100% HP 
-	Pikachu: 100% HP (dormindo)
+	Steelix: 96% HP 
 
+	Mew usa Metronomo (Dormir)
 	Mew: 100% HP 
-	Pikachu: 100% HP (dormindo)
+	Steelix: 92% HP 
 
-	Mew usa Auto-Destruir
-	aLLLLLLLan perde!
+	Steelix usa Rabo de Ferro 
+	Mew: 88% HP 
+	Steelix: 92% HP 
 
-1.1- Pikachu vs Pikachu
-	Pikachu: 100% HP 
-	Pikachu: 43% HP 
+	Mew usa Metronomo (Dormir)
+	Mew: 88% HP 
+	Steelix: 89% HP 
 
-	Pikachu usa Choque do Trovao 
-	Pikachu: 100% HP 
-	Pikachu: 38% HP 
+	Steelix usa Rabo de Ferro 
+	Mew: 77% HP 
+	Steelix: 89% HP 
 
-	Pikachu usa Onda de Choque
-	Pikachu: 100% HP (paralizado)
-	Pikachu: 38% HP 
+	Mew usa Metronomo (Bater)
+	Mew: 77% HP 
+	Steelix: 89% HP (paralizado)
 
-	Pikachu: 100% HP 
-	Pikachu: 38% HP 
+	Mew: 77% HP 
+	Steelix: 89% HP 
 
-	Pikachu usa Onda de Choque
-	Pikachu: 100% HP (paralizado)
-	Pikachu: 38% HP 
-
-	Pikachu: 100% HP 
-	Pikachu: 38% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 100% HP (paralizado)
-	Pikachu: 38% HP 
-
-	Pikachu: 100% HP 
-	Pikachu: 38% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 100% HP (paralizado)
-	Pikachu: 38% HP 
-
-	Pikachu: 100% HP 
-	Pikachu: 38% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 100% HP (paralizado)
-	Pikachu: 38% HP 
-
-	Pikachu: 100% HP 
-	Pikachu: 38% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 100% HP (paralizado)
-	Pikachu: 38% HP 
-
-	Pikachu: 100% HP 
-	Pikachu: 38% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 100% HP (paralizado)
-	Pikachu: 38% HP 
-
-	Pikachu: 100% HP 
-	Pikachu: 38% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 100% HP (paralizado)
-	Pikachu: 38% HP 
-
-	Pikachu: 100% HP 
-	Pikachu: 38% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 100% HP (paralizado)
-	Pikachu: 38% HP 
-
-	Pikachu: 100% HP 
-	Pikachu: 38% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 100% HP (paralizado)
-	Pikachu: 38% HP 
-
-	Pikachu: 100% HP 
-	Pikachu: 38% HP 
-
-	Pikachu usa Choque do Trovao 
-	Pikachu: 90% HP 
-	Pikachu: 38% HP 
-
-	Pikachu usa Bater
-	Pikachu: 90% HP 
-	Pikachu: 34% HP 
-
-	Pikachu usa Choque do Trovao 
-	Pikachu: 84% HP 
-	Pikachu: 34% HP 
-
-	Pikachu usa Bater
-	Pikachu: 84% HP 
-	Pikachu: 31% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 84% HP (paralizado)
-	Pikachu: 31% HP 
-
-	Pikachu: 84% HP 
-	Pikachu: 31% HP 
-
-	Pikachu usa Choque do Trovao 
-	Pikachu: 79% HP 
-	Pikachu: 31% HP 
-
-	Pikachu usa Bater
-	Pikachu: 79% HP 
-	Pikachu: 27% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 79% HP (paralizado)
-	Pikachu: 27% HP 
-
-	Pikachu: 79% HP 
-	Pikachu: 27% HP 
-
-	Pikachu usa Choque do Trovao 
-	Pikachu: 74% HP 
-	Pikachu: 27% HP 
-
-	Pikachu usa Bater
-	Pikachu: 74% HP 
-	Pikachu: 24% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 74% HP (paralizado)
-	Pikachu: 24% HP 
-
-	Pikachu: 74% HP 
-	Pikachu: 24% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 74% HP (paralizado)
-	Pikachu: 24% HP 
-
-	Pikachu: 74% HP 
-	Pikachu: 24% HP 
-
-	Pikachu usa Choque do Trovao 
-	Pikachu: 68% HP 
-	Pikachu: 24% HP 
-
-	Pikachu usa Bater
-	Pikachu: 68% HP 
-	Pikachu: 20% HP 
-
-	Pikachu usa Choque do Trovao 
-	Pikachu: 63% HP 
-	Pikachu: 20% HP 
-
-	Pikachu usa Bater
-	Pikachu: 63% HP 
-	Pikachu: 13% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 63% HP (paralizado)
-	Pikachu: 13% HP 
-
-	Pikachu: 63% HP 
-	Pikachu: 13% HP 
-
-	Pikachu usa Choque do Trovao 
-	Pikachu: 58% HP 
-	Pikachu: 13% HP 
-
-	Pikachu usa Bater
-	Pikachu: 58% HP 
-	Pikachu: 10% HP 
-
-	Pikachu usa Choque do Trovao 
-	Pikachu: 53% HP (paralizado)
-	Pikachu: 10% HP 
-
-	Pikachu: 53% HP 
-	Pikachu: 10% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 53% HP (paralizado)
-	Pikachu: 10% HP 
-
-	Pikachu: 53% HP 
-	Pikachu: 10% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 53% HP (paralizado)
-	Pikachu: 10% HP 
-
-	Pikachu: 53% HP 
-	Pikachu: 10% HP 
-
-	Pikachu usa Choque do Trovao 
-	Pikachu: 48% HP 
-	Pikachu: 10% HP 
-
-	Pikachu usa Bater
-	Pikachu: 48% HP 
-	Pikachu: 6% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 48% HP (paralizado)
-	Pikachu: 6% HP 
-
-	Pikachu: 48% HP 
-	Pikachu: 6% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 48% HP (paralizado)
-	Pikachu: 6% HP 
-
-	Pikachu: 48% HP 
-	Pikachu: 6% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 48% HP (paralizado)
-	Pikachu: 6% HP 
-
-	Pikachu: 48% HP 
-	Pikachu: 6% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 48% HP (paralizado)
-	Pikachu: 6% HP 
-
-	Pikachu: 48% HP 
-	Pikachu: 6% HP 
-
-	Pikachu usa Choque do Trovao 
-	Pikachu: 42% HP 
-	Pikachu: 6% HP 
-
-	Pikachu usa Bater
-	Pikachu: 42% HP 
-	Pikachu: 3% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 42% HP (paralizado)
-	Pikachu: 3% HP 
-
-	Pikachu: 42% HP 
-	Pikachu: 3% HP 
-
-	Pikachu usa Onda de Choque
-	Pikachu: 42% HP (paralizado)
-	Pikachu: 3% HP 
-
-	Pikachu: 42% HP 
-	Pikachu: 3% HP 
-
-	Pikachu usa Choque do Trovao 
-	Pikachu: 37% HP 
-	Pikachu: 3% HP 
-
-	Pikachu usa Bater
-	aLLLLLLLan vence!
-
-1.2- Pikachu vs Charizard
-	Pikachu: 47% HP 
-	Charizard: 100% HP 
-
-	Pikachu usa Bater
-	Pikachu: 47% HP 
-	Charizard: 96% HP 
-
-	Charizard usa Dormir
-	Pikachu: 47% HP 
-	Charizard: 96% HP (dormindo)
-
-	Pikachu usa Bater
-	Pikachu: 47% HP 
-	Charizard: 92% HP (dormindo)
-
-	Pikachu: 47% HP 
-	Charizard: 92% HP (dormindo)
-
-	Pikachu usa Bater
-	Pikachu: 47% HP 
-	Charizard: 100% HP 
-
-	Charizard usa Lanca Chamas 
-	Pikachu: 16% HP 
-	Charizard: 100% HP 
-
-	Pikachu usa Bater
-	Pikachu: 16% HP 
-	Charizard: 96% HP 
-
-	Charizard usa Dormir
-	Pikachu: 16% HP 
-	Charizard: 96% HP (dormindo)
-
-	Pikachu usa Bater
-	Pikachu: 16% HP 
-	Charizard: 92% HP (dormindo)
-
-	Pikachu: 16% HP 
-	Charizard: 92% HP (dormindo)
-
-	Pikachu usa Bater
-	Pikachu: 16% HP 
-	Charizard: 100% HP 
-
-	Charizard usa Lanca Chamas 
-	aLLLLLLLan perde!
-
-1.2- Blastoise vs Charizard
-	Blastoise: 100% HP 
-	Charizard: 100% HP 
-
-	Blastoise usa Bater
-	Blastoise: 100% HP 
-	Charizard: 88% HP 
-
-	Charizard usa Dormir
-	Blastoise: 100% HP 
-	Charizard: 88% HP (dormindo)
-
-	Blastoise usa Bater
-	Blastoise: 100% HP 
-	Charizard: 77% HP (dormindo)
-
-	Blastoise: 100% HP 
-	Charizard: 77% HP (dormindo)
-
-	Blastoise usa Bater
-	Blastoise: 100% HP 
-	Charizard: 100% HP 
-
-	Charizard usa Lanca Chamas 
-	Blastoise: 88% HP 
-	Charizard: 100% HP 
-
-	Blastoise usa Bater
-	Blastoise: 88% HP 
-	Charizard: 88% HP 
-
-	Charizard usa Lanca Chamas 
-	Blastoise: 76% HP (queimando)
-	Charizard: 88% HP 
-
-	Blastoise usa Bater
-	Blastoise: 76% HP (queimando)
-	Charizard: 77% HP 
-
-	Charizard usa Lanca Chamas 
-	Blastoise: 64% HP (queimando)
-	Charizard: 77% HP 
-
-	Blastoise usa Bater
-	Blastoise: 64% HP (queimando)
-	Charizard: 65% HP 
-
-	Charizard usa Dormir
-	Blastoise: 58% HP (queimando)
-	Charizard: 65% HP (dormindo)
-
-	Blastoise usa Bater
-	Blastoise: 58% HP (queimando)
-	Charizard: 54% HP (dormindo)
-
-	Blastoise: 51% HP (queimando)
-	Charizard: 54% HP (dormindo)
-
-	Blastoise usa Bater
-	Blastoise: 51% HP (queimando)
-	Charizard: 100% HP 
-
-	Charizard usa Dormir
-	Blastoise: 45% HP (queimando)
-	Charizard: 100% HP (dormindo)
-
-	Blastoise usa Bater
-	Blastoise: 45% HP (queimando)
-	Charizard: 88% HP (dormindo)
-
-	Blastoise: 39% HP (queimando)
-	Charizard: 88% HP (dormindo)
-
-	Blastoise usa Bater
-	Blastoise: 39% HP (queimando)
-	Charizard: 100% HP 
-
-	Charizard usa Lanca Chamas 
-	Blastoise: 27% HP (queimando)
-	Charizard: 100% HP 
-
-	Blastoise usa Bater
-	Blastoise: 27% HP (queimando)
-	Charizard: 88% HP 
-
-	Charizard usa Lanca Chamas 
-	Blastoise: 15% HP (queimando)
-	Charizard: 88% HP 
-
-	Blastoise usa Bater
-	Blastoise: 15% HP (queimando)
-	Charizard: 77% HP 
-
-	Charizard usa Lanca Chamas 
-	Blastoise: 2% HP (queimando)
-	Charizard: 77% HP 
-
-	Blastoise usa Bater
-	Blastoise: 2% HP (queimando)
-	Charizard: 65% HP 
-
-	Charizard usa Lanca Chamas 
-	aLLLLLLLan perde!
-
-Fim do jogo 1 aLLLLLLLan sobreviveu 1 batalhas

@@ -187,24 +187,36 @@ void attack1(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
     float dmg;
     printf("Choque do Trovao");
     
-    dmg = calcDamage(40, getPokemonATK(attacker), getPokemonDEF(deffender), 1) * type_relation;
+    if(getIsVulnerable(deffender)){
+        dmg = calcDamage(40, getPokemonATK(attacker), getPokemonDEF(deffender), 1) * type_relation;
 
-    setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
+        setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
 
-    if(calcRandomThings((float) 1/10))
-    {  
-        deffender_debuffs = createDebuff(deffender_debuffs);
-        deffender_debuffs->debuff->type = 0;
-        deffender_debuffs->debuff->roundsLeft = 2;
+        if(calcRandomThings((float) 1/10))
+        {  
+            deffender_debuffs = createDebuff(deffender_debuffs);
+            deffender_debuffs->debuff->type = 0;
+            deffender_debuffs->debuff->roundsLeft = 2;
+        }
+    }
+    else
+    {   
+        printf("\nAtaque bloqueado!");
     }
 }
 
 void attack2(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
 {
     printf("Onda de Choque");
-    deffender_debuffs = createDebuff(deffender_debuffs);
-    deffender_debuffs->debuff->type = 0;
-    deffender_debuffs->debuff->roundsLeft = 2;
+    if(getIsVulnerable(deffender)){
+        deffender_debuffs = createDebuff(deffender_debuffs);
+        deffender_debuffs->debuff->type = 0;
+        deffender_debuffs->debuff->roundsLeft = 2;
+    }
+    else
+    {
+         printf("\nAtaque bloqueado!");
+    }
 }
 
 void attack3(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
@@ -212,10 +224,16 @@ void attack3(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
     float dmg;
     
     printf("Bater");
+    if(getIsVulnerable(deffender))
+    {
+        dmg = calcDamage(40, getPokemonATK(attacker), getPokemonDEF(deffender), 0) * type_relation;
 
-    dmg = calcDamage(40, getPokemonATK(attacker), getPokemonDEF(deffender), 0) * type_relation;
-
-    setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
+        setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
+    }
+    else
+    {   
+        printf("\nAtaque bloqueado!");
+    }
 }
 
 void attack4(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
@@ -224,15 +242,21 @@ void attack4(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
 
     printf("Lanca Chamas");
 
-    dmg = calcDamage(90, getPokemonATK(attacker), getPokemonDEF(deffender), 1) * type_relation;
+    if(getIsVulnerable(deffender)){
+        dmg = calcDamage(90, getPokemonATK(attacker), getPokemonDEF(deffender), 1) * type_relation;
 
-    setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
+        setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
 
-    if(calcRandomThings((float) 1/10))
-    {
-        deffender_debuffs = createDebuff(deffender_debuffs);
-        deffender_debuffs->debuff->type = 1;
-        deffender_debuffs->debuff->roundsLeft = -1;
+        if(calcRandomThings((float) 1/10))
+        {
+            deffender_debuffs = createDebuff(deffender_debuffs);
+            deffender_debuffs->debuff->type = 1;
+            deffender_debuffs->debuff->roundsLeft = -1;
+        }
+    }
+    else
+    {   
+        printf("\nAtaque bloqueado!");
     }
 
 }
@@ -244,7 +268,6 @@ void attack5(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
     attacker_debuffs = createDebuff(attacker_debuffs);
     attacker_debuffs->debuff->type = 2;
     attacker_debuffs->debuff->roundsLeft = 4;
-
 }
 
 void attack6(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
@@ -252,10 +275,16 @@ void attack6(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
     float dmg;
     
     printf("Arma de Agua");
+    if(getIsVulnerable(deffender))
+    {
+        dmg = calcDamage(40, getPokemonATK(attacker), getPokemonDEF(deffender), 1) * type_relation;
 
-    dmg = calcDamage(40, getPokemonATK(attacker), getPokemonDEF(deffender), 1) * type_relation;
-
-    setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
+        setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
+    } 
+    else
+    {   
+        printf("\nAtaque bloqueado!");
+    }
 }
 
 void attack7(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
@@ -269,10 +298,17 @@ void attack7(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
 void attack8(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
 {
     printf("Po de Sono");
-    int roundsLeft = (int) (1 + (rand() % 2)) * 2;
-    deffender_debuffs = createDebuff(deffender_debuffs);
-    deffender_debuffs->debuff->type = 4;
-    deffender_debuffs->debuff->roundsLeft = roundsLeft;
+    if(getIsVulnerable(deffender))
+    {
+        int roundsLeft = (int) (1 + (rand() % 3)) * 2;
+        deffender_debuffs = createDebuff(deffender_debuffs);
+        deffender_debuffs->debuff->type = 4;
+        deffender_debuffs->debuff->roundsLeft = roundsLeft;
+    }
+    else
+    {   
+        printf("\nAtaque bloqueado!");
+    }
 }
 
 void attack9(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
@@ -280,10 +316,17 @@ void attack9(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
     float dmg;
 
     printf("Bomba de Semente");
-    
-    dmg = calcDamage(80, getPokemonATK(attacker), getPokemonDEF(deffender), 1) * type_relation;
 
-    setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
+    if(getIsVulnerable(deffender))
+    {
+        dmg = calcDamage(80, getPokemonATK(attacker), getPokemonDEF(deffender), 1) * type_relation;
+
+        setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
+    }
+    else
+    {   
+        printf("\nAtaque bloqueado!");
+    }
 }
 
 void attack10(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
@@ -291,10 +334,18 @@ void attack10(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_deb
     float dmg;
 
     printf("Dois Gumes");
-    
+
     dmg = calcDamage(120, getPokemonATK(attacker), getPokemonDEF(deffender), 0) * type_relation;
-    
-    setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
+
+    if(getIsVulnerable(deffender))
+    {
+        setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
+        
+    }
+    else
+    {
+        printf("\nAtaque bloqueado!");
+    }
 
     dmg = dmg / 3;
 
@@ -307,9 +358,16 @@ void attack11(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_deb
 
     printf("Rabo de Ferro");
     
-    dmg = calcDamage(100, getPokemonATK(attacker), getPokemonDEF(deffender), 1) * type_relation;
-
-    setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
+    if(getIsVulnerable(deffender))
+    {
+        dmg = calcDamage(100, getPokemonATK(attacker), getPokemonDEF(deffender), 1) * type_relation;
+        
+        setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
+    }
+    else
+    {
+        printf("\nAtaque bloqueado!");
+    }
 }
 
 void attack12(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
@@ -331,9 +389,16 @@ void attack14(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_deb
 
     printf("Auto-destruir");
     
-    dmg = calcDamage(200, getPokemonATK(attacker), getPokemonDEF(deffender), 0) * type_relation;
+    if(getIsVulnerable(deffender))
+    {
+        dmg = calcDamage(200, getPokemonATK(attacker), getPokemonDEF(deffender), 0) * type_relation;
 
-    setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
+        setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
+    }
+    else
+    {
+        printf("\nAtaque bloqueado!");
+    }
 
     setPokemonActualHP(attacker, -1);
 }

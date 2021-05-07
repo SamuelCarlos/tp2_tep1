@@ -10,6 +10,7 @@ struct Pokemon {
     int def;
     int type;
     int *attacks;
+    int is_vulnerable;
 };
 
 struct PokemonsList {
@@ -194,6 +195,7 @@ Pokemon * createPokemon()
     Pokemon * pokemon;
     pokemon = (Pokemon*) calloc(1, sizeof(Pokemon));
     pokemon->attacks = (int *) calloc(3, sizeof(int));
+    pokemon->is_vulnerable = 1;
     return pokemon;
 }
 
@@ -209,6 +211,7 @@ PokemonsList * attributePokemonToCell(PokemonsList* cell, Pokemon* pokemon)
     cell->pokemon->attacks[0] = pokemon->attacks[0];
     cell->pokemon->attacks[1] = pokemon->attacks[1];
     cell->pokemon->attacks[2] = pokemon->attacks[2];
+    cell->pokemon->is_vulnerable = pokemon->is_vulnerable;
 
     return cell;
 }
@@ -304,6 +307,15 @@ Pokemon * copyPokemon(Pokemon *poke, Pokemon *poke2)
     poke->attacks[0] = poke2->attacks[0];
     poke->attacks[1] = poke2->attacks[1];
     poke->attacks[2] = poke2->attacks[2];
+    poke->is_vulnerable = poke2->is_vulnerable;
 
     return poke;
+}
+
+int getIsVulnerable(Pokemon *pokemon){
+    return pokemon->is_vulnerable;
+}
+
+void setIsVulnerable(Pokemon *pokemon, int vulnerable){
+    pokemon->is_vulnerable = vulnerable;
 }
