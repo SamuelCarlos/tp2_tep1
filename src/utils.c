@@ -76,7 +76,7 @@ char *toUpperString(char *string) {
     int i;
     char * uppercased;
 
-    uppercased = (char* ) calloc(strlen(string), sizeof(char));
+    uppercased = (char* ) calloc(strlen(string) + 1, sizeof(char));
 
     for(i = 0; i < strlen(string); i++) {
         if(!isupper(string[i])) 
@@ -89,6 +89,7 @@ char *toUpperString(char *string) {
         }
     }
 
+    uppercased[strlen(string)] = '\0';
 
     return uppercased;
 }

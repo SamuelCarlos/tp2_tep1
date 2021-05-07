@@ -55,6 +55,7 @@ void mainMenu(char * scoresLocation, char * logsLocation)
         default:
             break;
         }
+        trash = system("clear");
     } while (!ending);
 
     fclose(logs);
@@ -63,11 +64,11 @@ void mainMenu(char * scoresLocation, char * logsLocation)
 void playGame(char * scoresLocation, FILE * logs, int partida)
 {
     
-    Scores * score;
-    Game * new_game;
-    Pokemon * cpu_pokemon;
-    PokemonsList *pokemons, *user_pokemons = NULL, *last_user_pokemon = NULL;
-    char *name;
+    Scores * score = NULL;
+    Game * new_game = NULL;
+    Pokemon * cpu_pokemon = NULL;
+    PokemonsList *pokemons = NULL, *user_pokemons = NULL, *last_user_pokemon = NULL;
+    char *name = NULL;
     char trash;
     int battle_result, player_defeated = 0, random_pokemon, position;
     int pokemonsQuantity = 0, i, player_choice, player_score = 0;
@@ -157,7 +158,6 @@ void playGame(char * scoresLocation, FILE * logs, int partida)
     fprintf(logs, "Fim do jogo %d %s sobreviveu %d batalhas\n", partida, name, player_score);
     printf("Fim de jogo!\n");
     printf("%s sobreviveu %d rodadas e esta em %d° lugar no placar!\n", name, player_score, position);
-
     
     freeScores(score);
     freePokemon(cpu_pokemon);

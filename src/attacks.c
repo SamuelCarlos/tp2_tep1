@@ -185,6 +185,7 @@ int findDebuffOnList(int type, DebuffsList * debuff_list)
 void attack1(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
 {
     float dmg;
+    printf("Choque do Trovao");
     
     dmg = calcDamage(40, getPokemonATK(attacker), getPokemonDEF(deffender), 1) * type_relation;
 
@@ -200,6 +201,7 @@ void attack1(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
 
 void attack2(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
 {
+    printf("Onda de Choque");
     deffender_debuffs = createDebuff(deffender_debuffs);
     deffender_debuffs->debuff->type = 0;
     deffender_debuffs->debuff->roundsLeft = 2;
@@ -209,6 +211,8 @@ void attack3(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
 {
     float dmg;
     
+    printf("Bater");
+
     dmg = calcDamage(40, getPokemonATK(attacker), getPokemonDEF(deffender), 0) * type_relation;
 
     setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
@@ -217,7 +221,9 @@ void attack3(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
 void attack4(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
 {
     float dmg;
-    
+
+    printf("Lanca Chamas");
+
     dmg = calcDamage(90, getPokemonATK(attacker), getPokemonDEF(deffender), 1) * type_relation;
 
     setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
@@ -233,6 +239,8 @@ void attack4(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
 
 void attack5(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
 {
+
+    printf("Dormir");
     attacker_debuffs = createDebuff(attacker_debuffs);
     attacker_debuffs->debuff->type = 2;
     attacker_debuffs->debuff->roundsLeft = 4;
@@ -243,6 +251,8 @@ void attack6(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
 {
     float dmg;
     
+    printf("Arma de Agua");
+
     dmg = calcDamage(40, getPokemonATK(attacker), getPokemonDEF(deffender), 1) * type_relation;
 
     setPokemonActualHP(deffender, getPokemonActualHP(deffender) - dmg);
@@ -250,6 +260,7 @@ void attack6(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
 
 void attack7(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
 {
+    printf("Proteger");
     attacker_debuffs = createDebuff(attacker_debuffs);
     attacker_debuffs->debuff->type = 3;
     attacker_debuffs->debuff->roundsLeft = 2;
@@ -257,6 +268,7 @@ void attack7(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
 
 void attack8(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
 {
+    printf("Po de Sono");
     int roundsLeft = (int) (1 + (rand() % 2)) * 2;
     deffender_debuffs = createDebuff(deffender_debuffs);
     deffender_debuffs->debuff->type = 4;
@@ -266,6 +278,8 @@ void attack8(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
 void attack9(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
 {
     float dmg;
+
+    printf("Bomba de Semente");
     
     dmg = calcDamage(80, getPokemonATK(attacker), getPokemonDEF(deffender), 1) * type_relation;
 
@@ -275,6 +289,8 @@ void attack9(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debu
 void attack10(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
 {
     float dmg;
+
+    printf("Dois Gumes");
     
     dmg = calcDamage(120, getPokemonATK(attacker), getPokemonDEF(deffender), 0) * type_relation;
     
@@ -288,6 +304,8 @@ void attack10(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_deb
 void attack11(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
 {
     float dmg;
+
+    printf("Rabo de Ferro");
     
     dmg = calcDamage(100, getPokemonATK(attacker), getPokemonDEF(deffender), 1) * type_relation;
 
@@ -296,6 +314,7 @@ void attack11(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_deb
 
 void attack12(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
 {
+    printf("Cavar");
     attacker_debuffs = createDebuff(attacker_debuffs);
     attacker_debuffs->debuff->type = 6;
     attacker_debuffs->debuff->roundsLeft = 2;
@@ -303,22 +322,14 @@ void attack12(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_deb
 
 void attack13(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
 {
-    fptrAttack atk;
-    int random = (int) 1 + (rand() % 13);
-
-    while (random == 13)
-    {
-        random = (int) 1 + (rand() % 13);
-    }
-
-    atk = doAttack[random];
-
-    atk(attacker, deffender, attacker_debuffs, deffender_debuffs, type_relation); 
+    printf("Metronomo");
 }
 
 void attack14(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_debuffs, DebuffsList* deffender_debuffs, float type_relation)
 {
     float dmg;
+
+    printf("Auto-destruir");
     
     dmg = calcDamage(200, getPokemonATK(attacker), getPokemonDEF(deffender), 0) * type_relation;
 

@@ -18,11 +18,12 @@ Scores * createNewScoresNode(Scores * first_node, int score, char * name, int * 
 {   
     Scores * node = first_node;
     Scores * previous = NULL;
-    IndividualScore * individualNode;
+    IndividualScore * individualNode = NULL;
+    IndividualScore * previousIndividualNode = NULL;
     int rightOrLeft = 0;
     int position = 0;
-    char * uppercasedName;
-    char * uppercasedNameAtTree;
+    char * uppercasedName = NULL;
+    char * uppercasedNameAtTree = NULL;
 
     if (first_node == NULL) 
     {
@@ -77,20 +78,22 @@ Scores * createNewScoresNode(Scores * first_node, int score, char * name, int * 
         else
         {
             individualNode = node->firstScore;
-
             do
             {
+                previousIndividualNode = individualNode;
                 uppercasedName = toUpperString(name);
                 uppercasedNameAtTree = toUpperString(individualNode->name);
 
-                if(strcmp(uppercasedName, uppercasedNameAtTree) < 0)
+                if(strcmp(uppercasedName, uppercasedNameAtTree) <= 0)
                 {
                     individualNode = individualNode->left;
+                    rightOrLeft = 0;
                     position++;
                 }
-                else if(strcmp(uppercasedName, uppercasedNameAtTree) >= 0)
+                else if(strcmp(uppercasedName, uppercasedNameAtTree) > 0)
                 {
                     individualNode = individualNode->right;
+                    rightOrLeft = 1;
                     position++;
                 }
 
@@ -99,10 +102,14 @@ Scores * createNewScoresNode(Scores * first_node, int score, char * name, int * 
             }while(individualNode != NULL);
 
             individualNode = (IndividualScore*) calloc(1, sizeof(IndividualScore));
+            if(rightOrLeft) {
+                previousIndividualNode->right = individualNode;
+            }else{
+                previousIndividualNode->left = individualNode;
+            }
             individualNode->name = strdup(name);
             individualNode->left = NULL;
             individualNode->right = NULL;
-           
         }
     }
 
@@ -115,8 +122,9 @@ void printInorder(Scores* node, FILE * file)
     if (node == NULL) return;
  
     printInorder(node->right, file);
- 
-    printNameInorder(node->firstScore, file, node->score);
+    
+    IndividualScore * first_node = node->firstScore;
+    printNameInorder(first_node, file, node->score);
     
     printInorder(node->left, file);
 }
@@ -125,11 +133,11 @@ void printNameInorder(IndividualScore * node, FILE * file, int score)
 {
     if (node == NULL) return;
     
-    printNameInorder(node->right, file, score);
+    printNameInorder(node->left, file, score);
 
     fprintf(file, "%s %d\n", node->name, score);
  
-    printNameInorder(node->left, file, score);
+    printNameInorder(node->right, file, score);
 }
 
 void freeScores(Scores * node)
@@ -231,7 +239,7 @@ void printScoreTree(Scores *node)
     printScoreTree(node->right);
     
     IndividualScore * aux = node->firstScore;
-    printScoreboardName(aux, node->score);
+    printScoreboardName(node->firstScore, node->score);
  
     printScoreTree(node->left);
 }
@@ -240,9 +248,9 @@ void printScoreboardName(IndividualScore * node, int score)
 {
     if (node == NULL) return;
 
-    printScoreboardName(node->right, score);
+    printScoreboardName(node->left, score);
  
     printf("%s %d\n", node->name, score);
  
-    printScoreboardName(node->left, score);
+    printScoreboardName(node->right, score);
 }
