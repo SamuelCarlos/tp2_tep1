@@ -4,6 +4,7 @@
 fptrAttack doAttack[15];
 
 fptrDebuff doDebuff[9];
+
 struct Attack {
     char *name;
     int is_damage_dealer;   

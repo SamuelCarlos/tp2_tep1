@@ -158,6 +158,7 @@ void playGame(char * scoresLocation, FILE * logs, int partida)
     fprintf(logs, "Fim do jogo %d %s sobreviveu %d batalhas\n", partida, name, player_score);
     printf("Fim de jogo!\n");
     printf("%s sobreviveu %d rodadas e esta em %d° lugar no placar!\n", name, player_score, position);
+    getchar();
     
     freeScores(score);
     freePokemon(cpu_pokemon);

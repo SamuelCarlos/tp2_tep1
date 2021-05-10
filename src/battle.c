@@ -130,7 +130,8 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FIL
         if(attacker_conditions[1]){
             setPokemonActualHP(attacker, getPokemonActualHP(attacker) - (getPokemonHP(attacker)/16));
             if(getPokemonActualHP(attacker) < 0)
-            {
+            {   
+                if(pokemon_attacks != NULL) free(pokemon_attacks);
                 break;
             }
         }
@@ -289,10 +290,8 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FIL
                     {
                         randomToAttack = 1 + (rand() % 14);
                     }
-                    fprintf(logs, "(%s)", getAttackName(attacks[(int) randomToAttack]));
+                    fprintf(logs, "(%s)", getAttackName(attacks[ randomToAttack - 1 ]));
                     printf(" (");
-                    printf("%d",randomToAttack);
-                    getchar();
                     attackPokemon(randomToAttack, attacker, deffender, getLastDebuff(attacker_debuffs), getLastDebuff(deffender_debuffs), type_relation);
                     printf(")");
                 }

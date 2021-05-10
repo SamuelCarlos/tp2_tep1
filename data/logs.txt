@@ -1,113 +1,791 @@
-1.1- Mew vs Steelix
+1.1- Mew vs Pikachu
 	Mew: 100% HP 
-	Steelix: 100% HP 
+	Pikachu: 100% HP 
 
-	Mew usa Metronomo (Proteger)
+	Mew usa Auto-Destruir
+	leo perde!
+
+1.1- Pikachu vs Pikachu
+	Pikachu: 100% HP 
+	Pikachu: 43% HP 
+
+	Pikachu usa Bater
+	Pikachu: 100% HP 
+	Pikachu: 40% HP 
+
+	Pikachu usa Bater
+	Pikachu: 96% HP 
+	Pikachu: 40% HP 
+
+	Pikachu usa Bater
+	Pikachu: 96% HP 
+	Pikachu: 36% HP 
+
+	Pikachu usa Choque do Trovao 
+	Pikachu: 91% HP 
+	Pikachu: 36% HP 
+
+	Pikachu usa Choque do Trovao 
+	Pikachu: 91% HP 
+	Pikachu: 31% HP 
+
+	Pikachu usa Bater
+	Pikachu: 88% HP 
+	Pikachu: 31% HP 
+
+	Pikachu usa Bater
+	Pikachu: 88% HP 
+	Pikachu: 27% HP 
+
+	Pikachu usa Choque do Trovao 
+	Pikachu: 82% HP 
+	Pikachu: 27% HP 
+
+	Pikachu usa Choque do Trovao 
+	Pikachu: 82% HP 
+	Pikachu: 22% HP 
+
+	Pikachu usa Onda de Choque
+	Pikachu: 82% HP (paralizado)
+	Pikachu: 22% HP 
+
+	Pikachu: 82% HP 
+	Pikachu: 22% HP 
+
+	Pikachu usa Bater
+	Pikachu: 79% HP 
+	Pikachu: 22% HP 
+
+	Pikachu usa Choque do Trovao 
+	Pikachu: 79% HP 
+	Pikachu: 17% HP 
+
+	Pikachu usa Onda de Choque
+	Pikachu: 79% HP (paralizado)
+	Pikachu: 17% HP 
+
+	Pikachu: 79% HP 
+	Pikachu: 17% HP 
+
+	Pikachu usa Onda de Choque
+	Pikachu: 79% HP (paralizado)
+	Pikachu: 17% HP 
+
+	Pikachu: 79% HP 
+	Pikachu: 17% HP 
+
+	Pikachu usa Choque do Trovao 
+	Pikachu: 74% HP 
+	Pikachu: 17% HP 
+
+	Pikachu usa Bater
+	Pikachu: 74% HP 
+	Pikachu: 13% HP 
+
+	Pikachu usa Onda de Choque
+	Pikachu: 74% HP (paralizado)
+	Pikachu: 13% HP 
+
+	Pikachu: 74% HP 
+	Pikachu: 13% HP 
+
+	Pikachu usa Onda de Choque
+	Pikachu: 74% HP (paralizado)
+	Pikachu: 13% HP 
+
+	Pikachu: 74% HP 
+	Pikachu: 13% HP 
+
+	Pikachu usa Choque do Trovao 
+	Pikachu: 68% HP 
+	Pikachu: 13% HP 
+
+	Pikachu usa Choque do Trovao 
+	Pikachu: 68% HP 
+	Pikachu: 8% HP 
+
+	Pikachu usa Bater
+	Pikachu: 65% HP 
+	Pikachu: 8% HP 
+
+	Pikachu usa Bater
+	Pikachu: 65% HP 
+	Pikachu: 1% HP 
+
+	Pikachu usa Choque do Trovao 
+	Pikachu: 60% HP (paralizado)
+	Pikachu: 1% HP 
+
+	Pikachu: 60% HP 
+	Pikachu: 1% HP 
+
+	Pikachu usa Choque do Trovao 
+	Pikachu: 54% HP 
+	Pikachu: 1% HP 
+
+	Pikachu usa Choque do Trovao 
+	leo vence!
+
+1.2- Pikachu vs Venusaur
+	Pikachu: 64% HP 
+	Venusaur: 100% HP 
+
+	Pikachu usa Choque do Trovao 
+	Pikachu: 64% HP 
+	Venusaur: 98% HP 
+
+	Venusaur usa Dois Gumes
+	Pikachu: 37% HP 
+	Venusaur: 92% HP 
+
+	Pikachu usa Choque do Trovao 
+	Pikachu: 37% HP 
+	Venusaur: 89% HP 
+
+	Venusaur usa Po de Sono 
+	Pikachu: 37% HP (dormindo)
+	Venusaur: 89% HP 
+
+	Pikachu: 37% HP (dormindo)
+	Venusaur: 89% HP 
+
+	Venusaur usa Dois Gumes
+	Pikachu: 10% HP (dormindo)
+	Venusaur: 83% HP 
+
+	Pikachu: 10% HP 
+	Venusaur: 83% HP 
+
+	Venusaur usa Po de Sono 
+	Pikachu: 10% HP (dormindo)
+	Venusaur: 83% HP 
+
+	Pikachu: 10% HP 
+	Venusaur: 83% HP 
+
+	Venusaur usa Bomba de Semente
+	leo perde!
+
+1.2- Venusaur vs Venusaur
+	Venusaur: 100% HP 
+	Venusaur: 83% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 100% HP 
+	Venusaur: 83% HP (dormindo)
+
+	Venusaur: 100% HP 
+	Venusaur: 83% HP (dormindo)
+
+	Venusaur usa Dois Gumes
+	Venusaur: 98% HP 
+	Venusaur: 77% HP (dormindo)
+
+	Venusaur: 98% HP 
+	Venusaur: 77% HP (dormindo)
+
+	Venusaur usa Dois Gumes
+	Venusaur: 96% HP 
+	Venusaur: 72% HP (dormindo)
+
+	Venusaur: 96% HP 
+	Venusaur: 72% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 94% HP 
+	Venusaur: 66% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 94% HP (dormindo)
+	Venusaur: 66% HP 
+
+	Venusaur: 94% HP (dormindo)
+	Venusaur: 66% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 94% HP (dormindo)
+	Venusaur: 66% HP 
+
+	Venusaur: 94% HP (dormindo)
+	Venusaur: 66% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 94% HP (dormindo)
+	Venusaur: 66% HP 
+
+	Venusaur: 94% HP (dormindo)
+	Venusaur: 66% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 94% HP (dormindo)
+	Venusaur: 66% HP 
+
+	Venusaur: 94% HP (dormindo)
+	Venusaur: 66% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 88% HP (dormindo)
+	Venusaur: 64% HP 
+
+	Venusaur: 88% HP (dormindo)
+	Venusaur: 64% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 82% HP (dormindo)
+	Venusaur: 64% HP 
+
+	Venusaur: 82% HP 
+	Venusaur: 64% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 76% HP 
+	Venusaur: 62% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 75% HP 
+	Venusaur: 56% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 69% HP 
+	Venusaur: 56% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 67% HP 
+	Venusaur: 50% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 67% HP (dormindo)
+	Venusaur: 50% HP 
+
+	Venusaur: 67% HP (dormindo)
+	Venusaur: 50% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 67% HP (dormindo)
+	Venusaur: 50% HP 
+
+	Venusaur: 67% HP (dormindo)
+	Venusaur: 50% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 67% HP (dormindo)
+	Venusaur: 50% HP 
+
+	Venusaur: 67% HP (dormindo)
+	Venusaur: 50% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 67% HP (dormindo)
+	Venusaur: 50% HP 
+
+	Venusaur: 67% HP (dormindo)
+	Venusaur: 50% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 67% HP (dormindo)
+	Venusaur: 50% HP 
+
+	Venusaur: 67% HP (dormindo)
+	Venusaur: 50% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 67% HP (dormindo)
+	Venusaur: 50% HP 
+
+	Venusaur: 67% HP (dormindo)
+	Venusaur: 50% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 61% HP (dormindo)
+	Venusaur: 48% HP 
+
+	Venusaur: 61% HP (dormindo)
+	Venusaur: 48% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 55% HP (dormindo)
+	Venusaur: 46% HP 
+
+	Venusaur: 55% HP 
+	Venusaur: 46% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 49% HP 
+	Venusaur: 46% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 47% HP 
+	Venusaur: 41% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 41% HP 
+	Venusaur: 39% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 39% HP 
+	Venusaur: 33% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 33% HP 
+	Venusaur: 31% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 31% HP 
+	Venusaur: 25% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 19% HP 
+	Venusaur: 25% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 17% HP 
+	Venusaur: 19% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 11% HP 
+	Venusaur: 19% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 10% HP 
+	Venusaur: 13% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 4% HP 
+	Venusaur: 11% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 2% HP 
+	Venusaur: 6% HP 
+
+	Venusaur usa Bomba de Semente
+	leo perde!
+
+Fim do jogo 1 leo sobreviveu 1 batalhas
+2.1- Mew vs Pikachu
 	Mew: 100% HP 
-	Steelix: 98% HP 
+	Pikachu: 100% HP 
 
-	Steelix usa Cavar
-	Mew: 100% HP 
-	Steelix: 98% HP 
+	Mew usa Auto-Destruir
+	leo_dois perde!
 
-	Mew usa Metronomo (Arma de Agua)
-	Mew: 87% HP (dormindo)
-	Steelix: 98% HP 
+2.1- Pikachu vs Pikachu
+	Pikachu: 100% HP 
+	Pikachu: 43% HP 
 
-	Mew: 87% HP (dormindo)
-	Steelix: 98% HP 
+	Pikachu usa Choque do Trovao 
+	Pikachu: 100% HP 
+	Pikachu: 38% HP 
 
-	Mew: 87% HP (dormindo)
-	Steelix: 98% HP 
+	Pikachu usa Onda de Choque
+	Pikachu: 100% HP (paralizado)
+	Pikachu: 38% HP 
 
-	Steelix usa Cavar
-	Mew: 100% HP 
-	Steelix: 98% HP 
+	Pikachu: 100% HP 
+	Pikachu: 38% HP 
 
-	Mew usa Metronomo (Po de Sono)
-	Mew: 100% HP 
-	Steelix: 98% HP 
+	Pikachu usa Choque do Trovao 
+	Pikachu: 95% HP 
+	Pikachu: 38% HP 
 
-	Mew: 100% HP 
-	Steelix: 98% HP 
+	Pikachu usa Choque do Trovao 
+	Pikachu: 95% HP 
+	Pikachu: 32% HP 
 
-	Mew usa Metronomo (Po de Sono)
-	Mew: 100% HP 
-	Steelix: 98% HP 
+	Pikachu usa Choque do Trovao 
+	Pikachu: 90% HP 
+	Pikachu: 32% HP 
 
-	Steelix usa Cavar
-	Mew: 100% HP 
-	Steelix: 98% HP 
+	Pikachu usa Choque do Trovao 
+	Pikachu: 90% HP 
+	Pikachu: 27% HP 
 
-	Mew usa Metronomo (Proteger)
-	Mew: 93% HP 
-	Steelix: 98% HP 
+	Pikachu usa Bater
+	Pikachu: 86% HP 
+	Pikachu: 27% HP 
 
-	Mew: 93% HP 
-	Steelix: 98% HP 
+	Pikachu usa Choque do Trovao 
+	Pikachu: 86% HP 
+	Pikachu: 22% HP (paralizado)
 
-	Mew usa Metronomo (Metronomo)
-	Mew: 93% HP 
-	Steelix: 98% HP 
+	Pikachu: 86% HP 
+	Pikachu: 22% HP 
 
-	Steelix usa Cavar
-	Mew: 93% HP 
-	Steelix: 98% HP 
+	Pikachu usa Choque do Trovao 
+	Pikachu: 86% HP 
+	Pikachu: 17% HP 
 
-	Mew: 87% HP 
-	Steelix: 98% HP 
+	Pikachu usa Bater
+	Pikachu: 82% HP 
+	Pikachu: 17% HP 
 
-	Mew: 87% HP 
-	Steelix: 98% HP 
+	Pikachu usa Choque do Trovao 
+	Pikachu: 82% HP 
+	Pikachu: 12% HP 
 
-	Mew usa Metronomo (Bomba de Semente)
-	Mew: 87% HP 
-	Steelix: 98% HP (dormindo)
+	Pikachu usa Choque do Trovao 
+	Pikachu: 77% HP 
+	Pikachu: 12% HP 
 
-	Mew: 87% HP 
-	Steelix: 98% HP (dormindo)
+	Pikachu usa Choque do Trovao 
+	Pikachu: 77% HP 
+	Pikachu: 6% HP (paralizado)
 
-	Mew usa Metronomo (Proteger)
-	Mew: 87% HP 
-	Steelix: 96% HP (dormindo)
+	Pikachu: 77% HP 
+	Pikachu: 6% HP 
 
-	Mew: 87% HP 
-	Steelix: 96% HP (dormindo)
+	Pikachu usa Choque do Trovao 
+	Pikachu: 77% HP 
+	Pikachu: 1% HP 
 
-	Mew usa Metronomo (Arma de Agua)
-	Mew: 87% HP (dormindo)
-	Steelix: 96% HP (dormindo)
+	Pikachu usa Bater
+	Pikachu: 74% HP 
+	Pikachu: 1% HP 
 
-	Mew: 87% HP (dormindo)
-	Steelix: 96% HP 
+	Pikachu usa Bater
+	leo_dois vence!
 
-	Mew: 87% HP (dormindo)
-	Steelix: 96% HP 
+2.2- Pikachu vs Venusaur
+	Pikachu: 84% HP 
+	Venusaur: 100% HP 
 
-	Steelix usa Rabo de Ferro 
-	Mew: 100% HP 
-	Steelix: 96% HP 
+	Pikachu usa Onda de Choque
+	Pikachu: 84% HP 
+	Venusaur: 100% HP (paralizado)
 
-	Mew usa Metronomo (Dormir)
-	Mew: 100% HP 
-	Steelix: 92% HP 
+	Pikachu: 84% HP 
+	Venusaur: 100% HP 
 
-	Steelix usa Rabo de Ferro 
-	Mew: 88% HP 
-	Steelix: 92% HP 
+	Pikachu usa Choque do Trovao 
+	Pikachu: 84% HP 
+	Venusaur: 98% HP 
 
-	Mew usa Metronomo (Dormir)
-	Mew: 88% HP 
-	Steelix: 89% HP 
+	Venusaur usa Po de Sono 
+	Pikachu: 84% HP (dormindo)
+	Venusaur: 98% HP 
 
-	Steelix usa Rabo de Ferro 
-	Mew: 77% HP 
-	Steelix: 89% HP 
+	Pikachu: 84% HP (dormindo)
+	Venusaur: 98% HP 
 
-	Mew usa Metronomo (Bater)
-	Mew: 77% HP 
-	Steelix: 89% HP (paralizado)
+	Venusaur usa Bomba de Semente
+	Pikachu: 56% HP (dormindo)
+	Venusaur: 98% HP 
 
-	Mew: 77% HP 
-	Steelix: 89% HP 
+	Pikachu: 56% HP 
+	Venusaur: 98% HP 
 
+	Venusaur usa Dois Gumes
+	Pikachu: 28% HP 
+	Venusaur: 92% HP 
+
+	Pikachu usa Onda de Choque
+	Pikachu: 28% HP 
+	Venusaur: 92% HP (paralizado)
+
+	Pikachu: 28% HP 
+	Venusaur: 92% HP 
+
+	Pikachu usa Choque do Trovao 
+	Pikachu: 28% HP 
+	Venusaur: 89% HP 
+
+	Venusaur usa Dois Gumes
+	Pikachu: 1% HP 
+	Venusaur: 83% HP 
+
+	Pikachu usa Bater
+	Pikachu: 1% HP 
+	Venusaur: 82% HP 
+
+	Venusaur usa Dois Gumes
+	leo_dois perde!
+
+2.2- Venusaur vs Venusaur
+	Venusaur: 100% HP 
+	Venusaur: 76% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 100% HP 
+	Venusaur: 76% HP (dormindo)
+
+	Venusaur: 100% HP 
+	Venusaur: 76% HP (dormindo)
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 100% HP 
+	Venusaur: 70% HP (dormindo)
+
+	Venusaur: 100% HP 
+	Venusaur: 70% HP (dormindo)
+
+	Venusaur usa Po de Sono 
+	Venusaur: 100% HP 
+	Venusaur: 70% HP (dormindo)
+
+	Venusaur: 100% HP 
+	Venusaur: 70% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 100% HP 
+	Venusaur: 64% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 94% HP 
+	Venusaur: 64% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 94% HP 
+	Venusaur: 64% HP (dormindo)
+
+	Venusaur: 94% HP 
+	Venusaur: 64% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 94% HP 
+	Venusaur: 58% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 94% HP (dormindo)
+	Venusaur: 58% HP 
+
+	Venusaur: 94% HP (dormindo)
+	Venusaur: 58% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 88% HP (dormindo)
+	Venusaur: 56% HP 
+
+	Venusaur: 88% HP (dormindo)
+	Venusaur: 56% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 82% HP (dormindo)
+	Venusaur: 56% HP 
+
+	Venusaur: 82% HP 
+	Venusaur: 56% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 76% HP 
+	Venusaur: 54% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 76% HP 
+	Venusaur: 54% HP (dormindo)
+
+	Venusaur: 76% HP 
+	Venusaur: 54% HP (dormindo)
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 76% HP 
+	Venusaur: 48% HP (dormindo)
+
+	Venusaur: 76% HP 
+	Venusaur: 48% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 76% HP 
+	Venusaur: 48% HP (dormindo)
+
+	Venusaur: 76% HP 
+	Venusaur: 48% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 76% HP 
+	Venusaur: 48% HP (dormindo)
+
+	Venusaur: 76% HP 
+	Venusaur: 48% HP (dormindo)
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 76% HP 
+	Venusaur: 42% HP (dormindo)
+
+	Venusaur: 76% HP 
+	Venusaur: 42% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 76% HP 
+	Venusaur: 42% HP (dormindo)
+
+	Venusaur: 76% HP 
+	Venusaur: 42% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 76% HP 
+	Venusaur: 36% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 76% HP (dormindo)
+	Venusaur: 36% HP 
+
+	Venusaur: 76% HP (dormindo)
+	Venusaur: 36% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 70% HP (dormindo)
+	Venusaur: 36% HP 
+
+	Venusaur: 70% HP 
+	Venusaur: 36% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 59% HP 
+	Venusaur: 32% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 59% HP 
+	Venusaur: 32% HP (dormindo)
+
+	Venusaur: 59% HP 
+	Venusaur: 32% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 59% HP 
+	Venusaur: 26% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 53% HP 
+	Venusaur: 26% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 53% HP 
+	Venusaur: 26% HP (dormindo)
+
+	Venusaur: 53% HP 
+	Venusaur: 26% HP (dormindo)
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 53% HP 
+	Venusaur: 20% HP (dormindo)
+
+	Venusaur: 53% HP 
+	Venusaur: 20% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 53% HP 
+	Venusaur: 20% HP (dormindo)
+
+	Venusaur: 53% HP 
+	Venusaur: 20% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 53% HP 
+	Venusaur: 14% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 47% HP 
+	Venusaur: 12% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 47% HP 
+	Venusaur: 12% HP (dormindo)
+
+	Venusaur: 47% HP 
+	Venusaur: 12% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 47% HP 
+	Venusaur: 6% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 41% HP 
+	Venusaur: 4% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 41% HP 
+	Venusaur: 4% HP (dormindo)
+
+	Venusaur: 41% HP 
+	Venusaur: 4% HP 
+
+	Venusaur usa Bomba de Semente
+	leo_dois vence!
+
+2.3- Venusaur vs Blastoise
+	Venusaur: 51% HP 
+	Blastoise: 100% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 51% HP 
+	Blastoise: 80% HP 
+
+	Blastoise usa Proteger
+	Venusaur: 51% HP 
+	Blastoise: 80% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 51% HP 
+	Blastoise: 80% HP 
+
+	Blastoise usa Bater
+	Venusaur: 49% HP 
+	Blastoise: 80% HP 
+
+	Venusaur usa Po de Sono 
+	Venusaur: 49% HP 
+	Blastoise: 80% HP (dormindo)
+
+	Venusaur: 49% HP 
+	Blastoise: 80% HP (dormindo)
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 49% HP 
+	Blastoise: 59% HP (dormindo)
+
+	Venusaur: 49% HP 
+	Blastoise: 59% HP (dormindo)
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 49% HP 
+	Blastoise: 39% HP (dormindo)
+
+	Venusaur: 49% HP 
+	Blastoise: 39% HP 
+
+	Venusaur usa Bomba de Semente
+	Venusaur: 49% HP 
+	Blastoise: 19% HP 
+
+	Blastoise usa Bater
+	Venusaur: 46% HP 
+	Blastoise: 19% HP 
+
+	Venusaur usa Bomba de Semente
+	leo_dois vence!
+
+2.4- Venusaur vs Charizard
+	Venusaur: 56% HP 
+	Charizard: 100% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 54% HP 
+	Charizard: 93% HP 
+
+	Charizard usa Bater
+	Venusaur: 46% HP 
+	Charizard: 93% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 41% HP 
+	Charizard: 79% HP 
+
+	Charizard usa Bater
+	Venusaur: 33% HP 
+	Charizard: 79% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 31% HP 
+	Charizard: 72% HP 
+
+	Charizard usa Bater
+	Venusaur: 22% HP 
+	Charizard: 72% HP 
+
+	Venusaur usa Dois Gumes
+	Venusaur: 20% HP 
+	Charizard: 64% HP 
+
+	Charizard usa Lanca Chamas 
+	leo_dois perde!
+
+Fim do jogo 2 leo_dois sobreviveu 3 batalhas
