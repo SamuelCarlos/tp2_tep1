@@ -61,21 +61,22 @@ BattleLog * newBattleLog(BattleLog* battle_log)
 
 int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FILE * logs)
 {
-    Pokemon * attacker;
-    Pokemon * deffender;
+    Pokemon *attacker;
+    Pokemon *deffender;
     Attack **attacks = NULL;
-    DebuffsList * attacker_debuffs;
-    DebuffsList * deffender_debuffs;
-    BattleStage * battle_stage = NULL;
-    DebuffsList * cpu_debuffs = createDebuff(cpu_debuffs);
-    DebuffsList * player_debuffs = createDebuff(player_debuffs);
+    DebuffsList *attacker_debuffs;
+    DebuffsList *deffender_debuffs;
+    BattleStage *battle_stage = NULL;
+    DebuffsList *cpu_debuffs = createDebuff(cpu_debuffs);
+    DebuffsList *player_debuffs = createDebuff(player_debuffs);
     char trash;
     float randomToRun, type_relation, dmg;
     int i, turn = 0, randomToAttack, attacksQuantity = 0, option, isPlayerTurn = 1, run_away = 0, captured = 0, player_has_attacked = 0, is_disabled = 0, emerging = 0, conditions_qtt = 0;
-    int * pokemon_attacks, * cpu_conditions, * player_conditions, * attacker_conditions, *deffender_conditions;
+    int *pokemon_attacks, *cpu_conditions, *player_conditions, *attacker_conditions, *deffender_conditions;
 
     attacks = readAttacks(&attacksQuantity);
-    
+
+    // initialize the battle_log list    
     new_game->battle_log = newBattleLog(new_game->battle_log);
     battle_stage = new_game->battle_log->battle;
     battle_stage->player_pokemon = player_pokemon;
@@ -83,10 +84,11 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FIL
     battle_stage->captureTries = 0;
     battle_stage->escapeTries = 0;
 
-    cpu_conditions = (int*) calloc(7, sizeof(int));
-    player_conditions = (int*) calloc(7, sizeof(int));
-    
 
+    cpu_conditions = (int* ) calloc(7, sizeof(int));
+    player_conditions = (int* ) calloc(7, sizeof(int));
+    
+    // verifies if cpu pokemon is "new"
     if(getPokemonActualHP(cpu_pokemon) == getPokemonHP(cpu_pokemon))
     {
         printf("Um ");
@@ -112,7 +114,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FIL
             pokemon_attacks[0] = getPokemonATTACKS1(player_pokemon);
             pokemon_attacks[1] = getPokemonATTACKS2(player_pokemon);
             pokemon_attacks[2] = getPokemonATTACKS3(player_pokemon);
-            isPlayerTurn = 1;        
+            isPlayerTurn = 0;        
         }else{
             attacker = cpu_pokemon;
             deffender = player_pokemon;
@@ -234,7 +236,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FIL
         if(player_conditions[4]) printf(" enterrado ");
         printf(")\n");
         
-        getchar();
+        // getchar();
 
         if(!is_disabled){
             if(isPlayerTurn) {
@@ -261,7 +263,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FIL
             printf(" esta incapacitado.\n");
         }
 
-        trash = system("clear");
+        // trash = system("clear");
 
         if(deffender_conditions[4])
         {

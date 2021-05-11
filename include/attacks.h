@@ -209,11 +209,11 @@ OBS: All the functions below have the same brief and parameter;
 void debuff1(int * conditions, Pokemon * pokemon, int is_removing);
 // execute the debuff "Queimar"
 void debuff2(int * conditions, Pokemon * pokemon, int is_removing);
-// execute the debuff "Dormir e curar" (player pokemon)
+// execute the debuff "Dormir e curar" (attacker pokemon)
 void debuff3(int * conditions, Pokemon * pokemon, int is_removing);
 // execute the debuff "Proteger"
 void debuff4(int * conditions, Pokemon * pokemon, int is_removing);
-// execute the debuff "Dormir" (cpu pokemon)
+// execute the debuff "Dormir" (deffender pokemon)
 void debuff5(int * conditions, Pokemon * pokemon, int is_removing);
 // execute the debuff "Cavar"
 void debuff6(int * conditions, Pokemon * pokemon, int is_removing);

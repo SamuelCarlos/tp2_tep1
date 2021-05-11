@@ -13,6 +13,8 @@ typedef struct Scores Scores;
 
 Scores * createNewScoresNode(Scores * first_node, int score, char * name, int * position);
 
+void countEqualPoints(IndividualScore * node, int * qnt);
+
 void printInorder(Scores* node, FILE * file);
 
 void printNameInorder(IndividualScore * node, FILE * file, int score);

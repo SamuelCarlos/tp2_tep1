@@ -20,6 +20,7 @@ Scores * createNewScoresNode(Scores * first_node, int score, char * name, int * 
     Scores * previous = NULL;
     IndividualScore * individualNode = NULL;
     IndividualScore * previousIndividualNode = NULL;
+    IndividualScore * temp = NULL;
     int rightOrLeft = 0;
     int position = 0;
     char * uppercasedName = NULL;
@@ -27,6 +28,7 @@ Scores * createNewScoresNode(Scores * first_node, int score, char * name, int * 
 
     if (first_node == NULL) 
     {
+        position++;
         first_node = (Scores*) calloc(1, sizeof(Scores));
         first_node->score = score;
         first_node->left = NULL;
@@ -45,21 +47,23 @@ Scores * createNewScoresNode(Scores * first_node, int score, char * name, int * 
             {
                 rightOrLeft = -1;
                 node = node->left;
-                position++;
+                temp = previous->firstScore;
+                countEqualPoints(temp, &position);
             }
             else if(score > node->score)
             {
                 rightOrLeft = 1;
                 node = node->right;
-                position++;
             }else{
                 rightOrLeft = 0;
+                break;
             }
-            if(rightOrLeft == 0) break;
+            
         }while(node != NULL);
 
         if(rightOrLeft != 0) 
         {
+            position++;
             node = (Scores*) calloc(1, sizeof(Scores));
             if(rightOrLeft == 1)
             {
@@ -84,13 +88,13 @@ Scores * createNewScoresNode(Scores * first_node, int score, char * name, int * 
                 uppercasedName = toUpperString(name);
                 uppercasedNameAtTree = toUpperString(individualNode->name);
 
-                if(strcmp(uppercasedName, uppercasedNameAtTree) <= 0)
+                if(strcmp(uppercasedName, uppercasedNameAtTree) < 0)
                 {
                     individualNode = individualNode->left;
                     rightOrLeft = 0;
-                    position++;
+                     
                 }
-                else if(strcmp(uppercasedName, uppercasedNameAtTree) > 0)
+                else if(strcmp(uppercasedName, uppercasedNameAtTree) >= 0)
                 {
                     individualNode = individualNode->right;
                     rightOrLeft = 1;
@@ -107,14 +111,25 @@ Scores * createNewScoresNode(Scores * first_node, int score, char * name, int * 
             }else{
                 previousIndividualNode->left = individualNode;
             }
+            position++;
             individualNode->name = strdup(name);
             individualNode->left = NULL;
             individualNode->right = NULL;
         }
     }
-
     *pos = position;
     return first_node;
+}
+
+void countEqualPoints(IndividualScore * node, int * qnt)
+{
+    if (node == NULL) return;
+    
+    countEqualPoints(node->left, qnt);
+
+    *qnt = *qnt + 1; 
+
+    countEqualPoints(node->right, qnt);
 }
 
 void printInorder(Scores* node, FILE * file)
