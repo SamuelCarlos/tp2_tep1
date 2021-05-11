@@ -156,8 +156,18 @@ int getPokemonATTACKS2(Pokemon *pokemon);
 */
 int getPokemonATTACKS3(Pokemon *pokemon);
 
+/*
+@brief receives a struct Pokemon and returns if the pokemon is vulnerable;
+@param Pokemon* pokemon: a struct pointer with the pokemon data;
+@return int with the number that represents your vulnerability;
+*/
 int getIsVulnerable(Pokemon *pokemon);
 
+/*
+@brief receives a struct Pokemon and modify the vulnerable value of the pokemon;
+@param Pokemon* pokemon: a struct pointer with the pokemon data;
+@param int vulnerable: the new pokemon vulnerable value;
+*/
 void setIsVulnerable(Pokemon *pokemon, int vulnerable);
 
 #endif // POKEMON_H
