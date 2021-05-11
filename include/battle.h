@@ -16,14 +16,14 @@ typedef struct Game Game;
 /*
 @brief allocates space for a Game type struct;
 @param Game* game: struct with the game data ;
-@return the allocated struct ;
+@return the allocated struct pointer ;
 */
 Game * newGame(Game* game);
 
 /*
 @brief allocates space for a BattleLog type struct;
 @param BattleLog* battle_log: struct with the battle data ;
-@return the allocated struct ;
+@return the allocated struct pointer;
 */
 BattleLog * newBattleLog(BattleLog* battle_log);
 
