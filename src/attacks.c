@@ -491,8 +491,6 @@ void loadDispatchDebuff(){
     doDebuff[3] = debuff4;
     doDebuff[4] = debuff5;
     doDebuff[5] = debuff6;
-    doDebuff[6] = debuff7;
-    doDebuff[7] = debuff8;
 }
 
 void passTurn(DebuffsList * debuffs_list)
@@ -605,24 +603,3 @@ void debuff6(int * conditions, Pokemon * pokemon, int is_removing)
     }
 }
 
-void debuff7(int * conditions, Pokemon * pokemon, int is_removing)
-{
-    if(is_removing)
-    {
-        conditions[4] = 0;
-    }else
-    {
-        conditions[4] = 1;
-    }
-}
-
-void debuff8(int * conditions, Pokemon * pokemon, int is_removing)
-{
-    if(is_removing)
-    {
-        conditions[6] = 0;
-    }else
-    {
-        conditions[6] = 1;
-    }
-}

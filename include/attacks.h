@@ -217,9 +217,6 @@ void debuff4(int * conditions, Pokemon * pokemon, int is_removing);
 void debuff5(int * conditions, Pokemon * pokemon, int is_removing);
 // execute the debuff "Cavar"
 void debuff6(int * conditions, Pokemon * pokemon, int is_removing);
-// execute the debuff ??
-void debuff7(int * conditions, Pokemon * pokemon, int is_removing);
-// execute the debuff ??
-void debuff8(int * conditions, Pokemon * pokemon, int is_removing);
+
 /* ------------------------------------------------------------- */
 #endif // ATTACKS_H
