@@ -9,7 +9,7 @@ void mainMenu(char * scoresLocation, char * logsLocation)
 {
     FILE * logs;
     Scores * score = NULL;
-    int option, is_valid_option = 1, ending = 0, partida = 1;
+    int option, is_valid_option = 1, ending = 0, match = 1;
     char trash;
     
     logs = fopen(logsLocation, "w");
@@ -41,8 +41,8 @@ void mainMenu(char * scoresLocation, char * logsLocation)
         switch (option)
         {
         case 1:
-            playGame(scoresLocation, logs, partida);
-            partida++;
+            playGame(scoresLocation, logs, match);
+            match++;
             break;
         case 2:
             score = readScoresFile(scoresLocation);
@@ -62,7 +62,7 @@ void mainMenu(char * scoresLocation, char * logsLocation)
     fclose(logs);
 }
 
-void playGame(char * scoresLocation, FILE * logs, int partida)
+void playGame(char * scoresLocation, FILE * logs, int match)
 {
     
     Scores * score = NULL;
@@ -112,7 +112,7 @@ void playGame(char * scoresLocation, FILE * logs, int partida)
 
 
     do {
-        fprintf(logs, "%d.%d- %s vs %s\n", partida, player_score + 1, getPokemonName(readPokemonFromList(user_pokemons, 0)), getPokemonName(cpu_pokemon));
+        fprintf(logs, "%d.%d- %s vs %s\n", match, player_score + 1, getPokemonName(readPokemonFromList(user_pokemons, 0)), getPokemonName(cpu_pokemon));
         trash = system("clear");
         battle_result = battle(readPokemonFromList(user_pokemons, 0), cpu_pokemon, new_game, logs);
 
@@ -156,7 +156,7 @@ void playGame(char * scoresLocation, FILE * logs, int partida)
    
     writeScoresOnFile(scoresLocation, score);
 
-    fprintf(logs, "Fim do jogo %d %s sobreviveu %d batalhas\n", partida, name, player_score);
+    fprintf(logs, "Fim do jogo %d %s sobreviveu %d batalhas\n", match, name, player_score);
     printf("Fim de jogo!\n");
     printf("%s sobreviveu %d rodadas e esta em %d° lugar no placar!\n", name, player_score, position);
     getchar();
