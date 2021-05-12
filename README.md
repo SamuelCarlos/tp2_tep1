@@ -1,13 +1,13 @@
 # :hamster: TP2 - CPokémon :tiger:
 
 > [Bruno Carneiro Izoton](https://github.com/brunoizoton2001)
+
 > [Samuel Carlos Xavier de Carvalho](https://github.com/SamuelCarlos)
 
 ## :rocket: What is CPokemon?
 
 CPokemon is a coursework to Tópicos Especiais em Programação class.
 The objective is the implementation of Dispatch Tables and Dynamic Chained List.
-
 
 ## :hammer: How it works?
 
@@ -22,14 +22,15 @@ All damage is calculated as required.
 
 ## :1234: Menus
 
-### :video_game: 1 - Jogar 
+### :video_game: 1 - Jogar
+
 Choose your name and your pokemons and go to the fight.
 
 ### :bar_chart: 2 - Melhores pontuações
 
 Displays the scores of all players in an orderly manner on the screen.
 
-### :door: 3 - Sair 
+### :door: 3 - Sair
 
 Exit the application.
 
@@ -43,8 +44,3 @@ We used recursive functions to walk in the tree.
 :clipboard: **Lists:** We used chained lists to hold on every data like player pokemons and it's debuffs.
 
 :bomb: **Troubles:** We had some troubles with debuffs aplication, that resulted in many variable uses and many conditionals at Battle.c, where the turns are counted and the battle occurs.
-
-
-
-
-
