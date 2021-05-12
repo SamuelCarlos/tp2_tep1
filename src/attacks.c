@@ -1,5 +1,5 @@
-#include "attacks.h"
-#include "battle.h"
+#include "../include/attacks.h"
+#include "../include/battle.h"
 
 fptrAttack doAttack[15];
 

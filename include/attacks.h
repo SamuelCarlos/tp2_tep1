@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "battle.h"
+#include "../include/battle.h"
 
 typedef struct Attack Attack;
 

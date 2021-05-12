@@ -1,4 +1,4 @@
-#include "files.h"
+#include "../include/files.h"
 #include <string.h>
 
 struct IndividualScore {

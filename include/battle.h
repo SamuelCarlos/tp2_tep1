@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "pokemon.h"
+#include "../include/pokemon.h"
 
 typedef struct BattleStage BattleStage;
 
