@@ -46,8 +46,15 @@ void mainMenu(char * scoresLocation, char * logsLocation)
             break;
         case 2:
             score = readScoresFile(scoresLocation);
-            printScoreTree(score);
-            freeScores(score);
+            if(score!= NULL)
+            {
+                printScoreTree(score);
+                freeScores(score);
+            }
+            else
+            {
+                printf("Ainda nao existem pontuacoes");
+            }
             getchar();
             break;
         case 3:

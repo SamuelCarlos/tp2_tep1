@@ -351,7 +351,6 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FIL
                     captured = 1;
                     fprintf(logs, "\tSucesso\n");
                     printf(" conseguiu!\n");
-                    getchar();
                 }else{
                     fprintf(logs, "\tFracasso\n");
                     printf(" falhou!\n");
@@ -373,7 +372,6 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FIL
                     run_away = 1;
                     fprintf(logs, "\tSucesso\n");
                     printf("conseguiu!\n");
-                    getchar();
                 }else{
                     fprintf(logs, "\tFracasso\n");
                     printf("falhou!\n");
@@ -384,7 +382,7 @@ int battle(Pokemon * player_pokemon, Pokemon * cpu_pokemon, Game * new_game, FIL
         }
 
         printf("\n");
-       
+        getchar();
         passTurn(getFirstDebuff(player_debuffs));
         passTurn(getFirstDebuff(cpu_debuffs));
         debuffPokemon(attacker_conditions, attacker, getFirstDebuff(attacker_debuffs));

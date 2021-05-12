@@ -375,7 +375,7 @@ void attack12(Pokemon * attacker, Pokemon * deffender, DebuffsList* attacker_deb
 {
     printf("Cavar");
     attacker_debuffs = createDebuff(attacker_debuffs);
-    attacker_debuffs->debuff->type = 6;
+    attacker_debuffs->debuff->type = 5;
     attacker_debuffs->debuff->roundsLeft = 2;
 }
 
@@ -596,10 +596,10 @@ void debuff6(int * conditions, Pokemon * pokemon, int is_removing)
 {
     if(is_removing)
     {
-        conditions[5] = 0;
+        conditions[4] = 0;
     }else
     {
-        conditions[5] = 1;
+        conditions[4] = 1;
     }
 }
 
