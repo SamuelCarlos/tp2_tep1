@@ -1,6 +1,6 @@
-#include "utils.h"
-#include "battle.h"
-#include "attacks.h"
+#include "../include/utils.h"
+#include "../include/battle.h"
+#include "../include/attacks.h"
 
 struct BattleStage {
     Pokemon * cpu_pokemon;

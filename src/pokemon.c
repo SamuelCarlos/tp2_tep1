@@ -1,5 +1,5 @@
-#include "pokemon.h"
-#include "attacks.h"
+#include "../include/pokemon.h"
+#include "../include/attacks.h"
 
 struct Pokemon {
     int id;
